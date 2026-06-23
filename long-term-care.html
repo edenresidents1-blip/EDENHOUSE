@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Long-Term Care Home — Eden House Care Facility</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.feature-highlight {
+  background: linear-gradient(135deg, var(--deep) 0%, #2a4a2d 100%);
+  border-radius: 6px; padding: 48px 44px;
+  position: relative; overflow: hidden;
+}
+.feature-highlight::before {
+  content: '🏥'; position: absolute; right: -10px; bottom: -20px;
+  font-size: 8rem; opacity: .05;
+}
+.ltc-photo-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 12px; border-radius: 6px; overflow: hidden;
+}
+.mosaic-cell {
+  background: var(--mist);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .85rem; color: var(--sage-dark);
+  text-align: center; padding: 16px;
+}
+.mosaic-cell:first-child { grid-row: span 2; background: var(--sage); color: var(--warm-white); font-size: 2.5rem; }
+.calendar-grid-ltc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+.calendar-thumb {
+  aspect-ratio: 3/4;
+  background: rgba(107,140,110,.08);
+  border: 1px dashed rgba(107,140,110,.25);
+  border-radius: 4px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: .78rem; color: var(--sage-dark); text-align: center; padding: 12px;
+  gap: 8px;
+}
+@media (max-width: 768px) {
+  .calendar-grid-ltc { grid-template-columns: repeat(2, 1fr); }
+  .ltc-photo-mosaic { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .mosaic-cell:first-child { grid-row: span 1; height: 180px; }
+}
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+
+<nav class="site-nav" id="site-nav">
+  <a href="index.html" class="nav-brand">
+    <svg class="nav-logo-svg" viewBox="0 0 40 40" fill="none">
+      <path d="M20 12C20 12 29 19 29 27C29 31.4 25 35 20 35C15 35 11 31.4 11 27C11 19 20 12Z" fill="#6B8C6E"/>
+      <path d="M20 7C20 7 33 16 33 27C33 33.2 27.2 37 20 37C12.8 37 7 33.2 7 27C7 16 20 7Z" fill="#6B8C6E" opacity=".4"/>
+      <line x1="20" y1="35" x2="20" y2="22" stroke="#A8C4AA" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Eden House</span>
+      <span class="nav-brand-sub">Care Facility · Est. 1968</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+    <li><a href="long-term-care.html" class="active">Long-Term Care</a></li>
+    <li><a href="retirement-home.html">Retirement Home</a></li>
+    <li><a href="infection-control.html">Infection &amp; Control</a></li>
+    <li><a href="legislation.html">Legislation</a></li><li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="nav-contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="long-term-care.html">Long-Term Care</a>
+  <a href="retirement-home.html">Retirement Home</a><a href="infection-control.html">Infection &amp; Control</a>
+  <a href="legislation.html">Legislation</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+</div>
+
+<header class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="hero-breadcrumb"><a href="index.html">Home</a> <span>/</span> Long-Term Care Home</div>
+    <h1 class="reveal">Long-Term<br><em>Care Home</em></h1>
+    <p class="page-hero-desc reveal reveal-delay-1">58 licensed beds with resident-centred nursing care 24 hours a day — in an intimate, home-like setting.</p>
+  </div>
+</header>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="slide-section bg-white">
+  <div class="section-inner">
+    <div class="two-col">
+      <div class="reveal">
+        <div class="section-eyebrow">Features</div>
+        <h2 class="section-title">Everything Your<br>Loved One <em>Deserves</em></h2>
+        <div class="divider"></div>
+        <p class="section-body" style="margin-bottom:36px;">Eden House Care Facility is committed to providing exemplary services to our residents. Our focus is on individualized care that respects, supports and enables residents to be as independent as possible.</p>
+        <ul class="feature-list">
+          <li>Licensed by the Ministry of Health and Long-Term Care</li>
+          <li>Resident-centred nursing and personal care 24 hours per day</li>
+          <li>Private, semi-private and ward accommodations available</li>
+          <li>Medical care and supervision available within the facility</li>
+          <li>On-site pharmacy services</li>
+          <li>Daily housekeeping, laundry and medication assistance</li>
+          <li>Intimate, home-like setting surrounded by lush grounds</li>
+          <li>Assistance with all activities of daily living</li>
+          <li>Three meals per day with menu-style service, plus morning, afternoon and evening snacks</li>
+          <li>Dietician assessment, therapeutic diets and dietary supplements</li>
+        </ul>
+        <div style="margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary">Inquire About Admission</a>
+          <a href="retirement-home.html" class="btn btn-outline-dark">View Retirement Home</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="ltc-photo-mosaic">
+          <div class="mosaic-cell">🏥</div>
+          <div class="mosaic-cell" style="background:var(--mist);">Comfortable private & semi-private rooms</div>
+          <div class="mosaic-cell" style="background:var(--cream);">Lush grounds & Memorial Garden</div>
+        </div>
+        <div class="feature-highlight" style="margin-top:24px;">
+          <div style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Ministry Licensed</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--warm-white);line-height:1.4;margin-bottom:16px;">Fully licensed by the Ministry of Long-Term Care &amp; RHRA</div>
+          <div style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7;">Our home meets all provincial standards for long-term care delivery, with ongoing quality improvement practices and transparent public reporting.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT TO EXPECT ═══ -->
+<section class="slide-section bg-sage">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow light">Day-to-Day Life</div>
+      <h2 class="section-title light">What to Expect at<br><em>Eden House</em></h2>
+    </div>
+    <div class="three-col" style="margin-top:48px;">
+      <div class="card dark reveal reveal-delay-1">
+        <div class="card-icon">🍽️</div>
+        <div class="card-title light">Dining</div>
+        <p class="card-body light">Three nutritious meals daily with menu-style service, plus snacks throughout the day. Dietician assessments ensure therapeutic and supplemental needs are met.</p>
+      </div>
+      <div class="card dark reveal reveal-delay-2">
+        <div class="card-icon">🎭</div>
+        <div class="card-title light">Recreation</div>
+        <p class="card-body light">Our full-time recreation team delivers daily activities, outings, and evening entertainment — keeping residents engaged, social, and joyful.</p>
+      </div>
+      <div class="card dark reveal reveal-delay-3">
+        <div class="card-icon">💊</div>
+        <div class="card-title light">Medical Care</div>
+        <p class="card-body light">On-site pharmacy, medical supervision, and nursing care around the clock. Professional associates available to support specialized health needs.</p>
+      </div>
+      <div class="card dark reveal reveal-delay-1">
+        <div class="card-icon">🧹</div>
+        <div class="card-title light">Housekeeping</div>
+        <p class="card-body light">Daily housekeeping and personal laundry services ensure a clean, comfortable and dignified living environment for every resident.</p>
+      </div>
+      <div class="card dark reveal reveal-delay-2">
+        <div class="card-icon">🌿</div>
+        <div class="card-title light">Grounds &amp; Garden</div>
+        <p class="card-body light">Beautiful lush grounds including a Memorial Garden — a peaceful retreat for residents, families and visitors to enjoy together.</p>
+      </div>
+      <div class="card dark reveal reveal-delay-3">
+        <div class="card-icon">👨‍👩‍👧</div>
+        <div class="card-title light">Family Partnership</div>
+        <p class="card-body light">We work in close partnership with residents' families, maintaining open communication and involving loved ones in care planning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CALENDAR ═══ -->
+<section class="slide-section bg-cream">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Activities &amp; Programming</div>
+      <h2 class="section-title">Long-Term Care Calendar<br>&amp; <em>Newsletter</em></h2>
+      <p class="section-body">Stay up to date with monthly activities, events and news from our Long-Term Care home. The current calendar and newsletter are posted regularly.</p>
+    </div>
+    <div class="calendar-grid-ltc reveal reveal-delay-1">
+      <div class="calendar-thumb">📅<br>May/June 2026<br>Calendar Pg. 1</div>
+      <div class="calendar-thumb">📅<br>May/June 2026<br>Calendar Pg. 2</div>
+      <div class="calendar-thumb">📅<br>May/June 2026<br>Calendar Pg. 3</div>
+      <div class="calendar-thumb">📅<br>May/June 2026<br>Calendar Pg. 4</div>
+      <div class="calendar-thumb">📰<br>April 2026<br>Newsletter Pg. 1</div>
+      <div class="calendar-thumb">📰<br>April 2026<br>Newsletter Pg. 2</div>
+      <div class="calendar-thumb">📰<br>April 2026<br>Newsletter Pg. 3</div>
+      <div class="calendar-thumb">📰<br>April 2026<br>Newsletter Pg. 4</div>
+    </div>
+    <div style="margin-top:36px;" class="reveal reveal-delay-2">
+      <a href="https://edenhousecarehome.ca/services/" target="_blank" class="btn btn-primary">View Full Calendar Online</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--deep);padding:80px 60px;text-align:center;">
+  <div style="max-width:600px;margin:0 auto;" class="reveal">
+    <div class="section-eyebrow gold" style="justify-content:center;margin-bottom:20px;">Ready to learn more?</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--warm-white);margin-bottom:20px;">Schedule a Visit</h2>
+    <p style="color:rgba(255,255,255,.6);margin-bottom:36px;font-size:1rem;line-height:1.75;">We invite you and your family to come see Eden House in person. Our team is happy to answer all your questions and guide you through the admission process.</p>
+    <a href="contact.html" class="btn btn-gold">Contact Us Today</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div><span class="footer-brand-name">Eden House Care Facility</span><p class="footer-brand-desc">A community-oriented 58-bed nursing home and 20-bed retirement home. Serving Guelph and area since 1968.</p></div>
+    <div><div class="footer-col-title">Navigation</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="long-term-care.html">Long-Term Care</a></li><li><a href="retirement-home.html">Retirement Home</a></li><li><a href="infection-control.html">Infection &amp; Control</a></li><li><a href="legislation.html">Legislation</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div><div class="footer-col-title">Quick Links</div><ul class="footer-links"><li><a href="legislation.html">Reports &amp; Policies</a></li><li><a href="https://rnao.ca/" target="_blank">RNAO</a></li><li><a href="https://guelphwellingtonoht.com/" target="_blank">GW OHT</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>5016 Wellington County Rd. 29, Guelph, ON</span></div><div class="footer-contact-item"><span class="footer-contact-icon">📞</span><span>(519) 856-4622</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✉️</span><span>admin@edenhousecarehome.ca</span></div></div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom"><div>© 2024 Eden House Care Facility Inc. · Est. 1968</div><div><a href="legislation.html">Reports</a> · <a href="legislation.html#privacy">Privacy</a></div></div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

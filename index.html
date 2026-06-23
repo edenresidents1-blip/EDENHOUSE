@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Eden House Care Facility</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── HOME-SPECIFIC ── */
+.hero-section {
+  height: 100vh; min-height: 680px;
+  display: flex; align-items: flex-end;
+  padding-bottom: 80px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(155deg, var(--deep2) 0%, #253d27 45%, #1a3a1c 100%);
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 75% 40%, rgba(200,169,110,.1) 0%, transparent 55%),
+              radial-gradient(ellipse at 20% 80%, rgba(107,140,110,.15) 0%, transparent 50%);
+}
+.hero-leaf {
+  position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+  opacity: .07; pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 60px; padding-top: 72px; width: 100%;
+}
+.hero-eyebrow {
+  font-size: .68rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--sage-light); margin-bottom: 24px;
+  display: flex; align-items: center; gap: 14px;
+}
+.hero-eyebrow::before { content: ''; width: 44px; height: 1px; background: var(--sage-light); }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 6.5vw, 6.2rem);
+  font-weight: 400; line-height: 1.02;
+  color: var(--warm-white); max-width: 720px;
+  margin-bottom: 28px;
+}
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem; font-weight: 300;
+  color: rgba(255,255,255,.6); max-width: 500px;
+  line-height: 1.75; margin-bottom: 48px;
+}
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+
+.hero-stats { display: flex; gap: 52px; flex-wrap: wrap; }
+
+/* reviews */
+.hero-reviews {
+  position: absolute; bottom: 36px; left: 60px; z-index: 3;
+  display: flex; align-items: center; gap: 12px;
+  font-size: .78rem; color: rgba(255,255,255,.45);
+}
+.review-stars { color: var(--gold); letter-spacing: 2px; }
+.review-sep { color: rgba(255,255,255,.2); }
+
+/* scroll indicator */
+.scroll-cue {
+  position: absolute; bottom: 44px; right: 60px; z-index: 3;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  animation: bobDown 2s ease-in-out infinite;
+}
+.scroll-cue-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.3), transparent);
+}
+@keyframes bobDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* about-snapshot */
+.about-snapshot {
+  display: grid; grid-template-columns: 55% 45%; gap: 0; min-height: 100vh;
+}
+.about-snapshot-text {
+  padding: 100px 80px 100px 60px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.about-snapshot-panel {
+  background: var(--deep);
+  padding: 100px 60px 100px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.about-snapshot-panel::before {
+  content: '"'; position: absolute; top: -20px; left: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 18rem; color: rgba(255,255,255,.03); line-height: 1;
+}
+.mission-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-style: italic; font-weight: 300;
+  color: var(--warm-white); line-height: 1.5; margin-bottom: 20px;
+}
+.mission-attr {
+  font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gold);
+}
+.values-chips {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px;
+}
+.value-chip {
+  border: 1px solid rgba(255,255,255,.15);
+  padding: 7px 16px; border-radius: 24px;
+  font-size: .72rem; letter-spacing: .08em;
+  color: rgba(255,255,255,.55);
+  transition: all .2s;
+}
+.value-chip:hover { border-color: var(--sage-light); color: var(--sage-light); }
+
+/* services preview */
+.services-preview {
+  background: var(--cream);
+  padding: 100px 60px;
+}
+.services-preview-inner { max-width: 1200px; margin: 0 auto; }
+.services-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px; }
+.svc-card {
+  background: var(--warm-white);
+  border-radius: 4px; padding: 40px 36px;
+  box-shadow: var(--shadow); display: flex; gap: 24px;
+  text-decoration: none; transition: all .3s;
+}
+.svc-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(30,46,32,.13); }
+.svc-card-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(107,140,110,.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; flex-shrink: 0;
+}
+.svc-card-body {}
+.svc-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; color: var(--deep);
+  margin-bottom: 10px;
+}
+.svc-card-desc { font-size: .88rem; color: #667; line-height: 1.7; }
+.svc-card-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--sage); text-decoration: none; margin-top: 14px;
+  transition: gap .2s;
+}
+.svc-card:hover .svc-card-link { gap: 12px; }
+
+/* calendar teaser */
+.calendar-teaser {
+  background: var(--deep);
+  display: flex; min-height: 55vh;
+}
+.cal-text {
+  flex: 1; padding: 100px 60px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.cal-visual {
+  flex: 1; background: linear-gradient(135deg, #2a4a2d, #1a3a1c);
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px;
+  position: relative;
+}
+.cal-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 6px; padding: 36px; max-width: 320px; width: 100%;
+}
+.cal-month {
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 4px; margin-bottom: 20px;
+}
+.cal-day-label {
+  text-align: center; font-size: .6rem;
+  color: rgba(255,255,255,.3); padding: 4px 0;
+}
+.cal-day {
+  text-align: center; font-size: .75rem;
+  color: rgba(255,255,255,.5); padding: 6px 0;
+  border-radius: 3px;
+}
+.cal-day.today { background: var(--sage); color: #fff; font-weight: 600; }
+.cal-day.event { color: var(--gold); }
+.cal-note { font-size: .8rem; color: rgba(255,255,255,.5); line-height: 1.6; }
+
+/* Join Team */
+.join-team {
+  background: var(--sage);
+  padding: 80px 60px; text-align: center;
+}
+.join-team-inner { max-width: 700px; margin: 0 auto; }
+.join-team h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--warm-white); margin-bottom: 16px;
+}
+.join-team p { color: rgba(255,255,255,.75); font-size: 1.05rem; margin-bottom: 36px; }
+.join-team .btn-gold { padding: 16px 40px; font-size: .82rem; }
+
+/* Section dot nav */
+#dot-nav {
+  position: fixed; right: 24px; top: 50%; transform: translateY(-50%);
+  z-index: 500; display: flex; flex-direction: column; gap: 10px;
+}
+.section-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(107,140,110,.35);
+  border: none; cursor: pointer; transition: all .3s;
+  padding: 0;
+}
+.section-dot.active, .section-dot:hover {
+  background: var(--sage); transform: scale(1.5);
+}
+
+@media (max-width: 900px) {
+  .about-snapshot { grid-template-columns: 1fr; }
+  .about-snapshot-text { padding: 72px 24px; }
+  .about-snapshot-panel { padding: 72px 24px; }
+  .services-cards { grid-template-columns: 1fr; }
+  .calendar-teaser { flex-direction: column; }
+  .cal-text { padding: 64px 24px; }
+  .hero-reviews { left: 24px; flex-wrap: wrap; }
+  .scroll-cue { right: 24px; }
+  .hero-content { padding: 0 24px; padding-top: 72px; }
+  .services-preview { padding: 72px 24px; }
+  .join-team { padding: 64px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- NAV -->
+<nav class="site-nav" id="site-nav">
+  <a href="index.html" class="nav-brand">
+    <svg class="nav-logo-svg" viewBox="0 0 40 40" fill="none">
+      <path d="M20 3C20 3 37 13 37 27C37 35.3 29.3 39 20 39C10.7 39 3 35.3 3 27C3 13 20 3Z" fill="#6B8C6E" opacity=".2"/>
+      <path d="M20 7C20 7 33 16 33 27C33 33.2 27.2 37 20 37C12.8 37 7 33.2 7 27C7 16 20 7Z" fill="#6B8C6E" opacity=".5"/>
+      <path d="M20 12C20 12 29 19 29 27C29 31.4 25 35 20 35C15 35 11 31.4 11 27C11 19 20 12Z" fill="#6B8C6E"/>
+      <line x1="20" y1="35" x2="20" y2="22" stroke="#A8C4AA" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M20 26C22 24 25 23 27 23" stroke="#A8C4AA" stroke-width="1" stroke-linecap="round"/>
+      <path d="M20 30C18 28 15 27 13 28" stroke="#A8C4AA" stroke-width="1" stroke-linecap="round"/>
+    </svg>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Eden House</span>
+      <span class="nav-brand-sub">Care Facility · Est. 1968</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="long-term-care.html">Long-Term Care</a></li>
+    <li><a href="retirement-home.html">Retirement Home</a></li>
+    <li><a href="infection-control.html">Infection &amp; Control</a></li>
+    <li><a href="legislation.html">Legislation</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="nav-contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="long-term-care.html">Long-Term Care</a>
+  <a href="retirement-home.html">Retirement Home</a>
+  <a href="infection-control.html">Infection &amp; Control</a>
+  <a href="legislation.html">Legislation / Reports</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- DOT NAV -->
+<div id="dot-nav">
+  <button class="section-dot active" data-target="hero" title="Home"></button>
+  <button class="section-dot" data-target="about" title="About"></button>
+  <button class="section-dot" data-target="services" title="Services"></button>
+  <button class="section-dot" data-target="calendar" title="Activities"></button>
+  <button class="section-dot" data-target="join" title="Join Team"></button>
+</div>
+
+<!-- ═══ SECTION 1: HERO ═══ -->
+<section class="slide-section hero-section" data-section="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-leaf" width="540" height="640" viewBox="0 0 540 640" fill="none">
+    <path d="M270 30C270 30 510 150 510 370C510 510 406 600 270 600C134 600 30 510 30 370C30 150 270 30Z" stroke="#A8C4AA" stroke-width="1.5" fill="none"/>
+    <path d="M270 80C270 80 460 185 460 370C460 488 370 556 270 556C170 556 80 488 80 370C80 185 270 80Z" stroke="#A8C4AA" stroke-width="1" fill="none" opacity=".6"/>
+    <line x1="270" y1="590" x2="270" y2="330" stroke="#A8C4AA" stroke-width="1.5"/>
+    <path d="M270 340C270 340 315 308 355 302" stroke="#A8C4AA" stroke-width="1"/>
+    <path d="M270 400C270 400 222 368 182 372" stroke="#A8C4AA" stroke-width="1"/>
+    <path d="M270 460C270 460 308 432 338 428" stroke="#A8C4AA" stroke-width="1"/>
+    <path d="M270 510C270 510 240 490 214 494" stroke="#A8C4AA" stroke-width="1"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">Established 1968 · Guelph, Ontario</div>
+    <h1 class="hero-title reveal reveal-delay-1">
+      A <em>nice place</em><br>to live.
+    </h1>
+    <p class="hero-tagline reveal reveal-delay-2">
+      58-bed nursing home &amp; 20-bed retirement home — nestled between Rockwood, Eden Mills and Guelph, serving our community for over 55 years.
+    </p>
+    <div class="hero-ctas reveal reveal-delay-3">
+      <a href="contact.html" class="btn btn-gold">Book a Tour</a>
+      <a href="about.html" class="btn btn-outline-light">Our Story</a>
+    </div>
+    <div class="hero-stats reveal reveal-delay-4">
+      <div class="stat-block">
+        <div class="num">55+</div>
+        <div class="label">Years of service</div>
+      </div>
+      <div class="stat-block">
+        <div class="num">58</div>
+        <div class="label">Long-term care beds</div>
+      </div>
+      <div class="stat-block">
+        <div class="num">20</div>
+        <div class="label">Retirement suites</div>
+      </div>
+      <div class="stat-block">
+        <div class="num">24/7</div>
+        <div class="label">Nursing care</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-reviews">
+    <span class="review-stars">★★★★★</span>
+    <span class="review-sep">·</span>
+    <span>"Scenic and homely location"</span>
+    <span class="review-sep">·</span>
+    <span>"Professional, caring staff"</span>
+    <span class="review-sep">·</span>
+    <span>Google Reviews</span>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-cue-line"></div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 2: ABOUT SNAPSHOT ═══ -->
+<section class="slide-section about-snapshot" data-section="about" style="min-height:100vh;display:grid;">
+  <div class="about-snapshot-text reveal">
+    <div class="section-eyebrow">About Eden House</div>
+    <h2 class="section-title">A Community<br>Cornerstone Since 1968</h2>
+    <div class="divider"></div>
+    <p class="section-body" style="margin-bottom:28px;">
+      Eden House is a people-centered care home surrounded by lush grounds and a beautiful Memorial Garden. Licensed by the Ministry of Long-Term Care and the Retirement Homes Regulatory Authority, our home is committed to providing exemplary care that respects, supports, and enables residents to be as independent as possible.
+    </p>
+    <p class="section-body" style="margin-bottom:40px;">
+      Together with our staff, professional associates and volunteers, we strive every day to make Eden House <em style="font-style:italic;color:var(--sage-dark);">"a nice place to live."</em>
+    </p>
+    <div class="values-chips" style="border:none;">
+      <span class="value-chip" style="border-color:var(--border);color:#667;background:none;">Ministry Licensed</span>
+      <span class="value-chip" style="border-color:var(--border);color:#667;background:none;">RHRA Certified</span>
+      <span class="value-chip" style="border-color:var(--border);color:#667;background:none;">RNAO Member</span>
+      <span class="value-chip" style="border-color:var(--border);color:#667;background:none;">BPSO Designated</span>
+      <span class="value-chip" style="border-color:var(--border);color:#667;background:none;">Memorial Garden</span>
+    </div>
+    <div style="margin-top:40px;">
+      <a href="about.html" class="btn btn-primary">Learn More About Us</a>
+    </div>
+  </div>
+  <div class="about-snapshot-panel reveal reveal-delay-2">
+    <div class="mission-quote">"Together we strive to give residents the best possible care — making Eden House a nice place to live."</div>
+    <div class="mission-attr">Eden House Mission Statement</div>
+    <div class="values-chips" style="margin-top:40px;">
+      <span class="value-chip">Accountability</span>
+      <span class="value-chip">Compassion</span>
+      <span class="value-chip">Excellence</span>
+      <span class="value-chip">Safety</span>
+      <span class="value-chip">Innovation</span>
+      <span class="value-chip">Teamwork</span>
+      <span class="value-chip">Ethical Care</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: SERVICES ═══ -->
+<section class="slide-section" data-section="services" style="min-height:auto;">
+  <div class="services-preview" style="width:100%;padding-top:100px;padding-bottom:100px;">
+    <div class="services-preview-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">What We Offer</div>
+        <h2 class="section-title" style="max-width:540px;">Care That Meets You<br><em>Where You Are</em></h2>
+        <p class="section-body" style="max-width:600px;margin-bottom:0;">Eden House provides comprehensive care services tailored to each resident — from nursing support around the clock to vibrant social programming.</p>
+      </div>
+      <div class="services-cards">
+        <a href="long-term-care.html" class="svc-card reveal reveal-delay-1">
+          <div class="svc-card-icon">🏥</div>
+          <div class="svc-card-body">
+            <div class="svc-card-title">Long-Term Care Home</div>
+            <p class="svc-card-desc">58 licensed beds with 24/7 resident-centred nursing care, pharmacy services, therapeutic diets, and private, semi-private and ward accommodations.</p>
+            <span class="svc-card-link">Explore →</span>
+          </div>
+        </a>
+        <a href="retirement-home.html" class="svc-card reveal reveal-delay-2">
+          <div class="svc-card-icon">🏡</div>
+          <div class="svc-card-body">
+            <div class="svc-card-title">Retirement Home</div>
+            <p class="svc-card-desc">20 private suites with meals, laundry, housekeeping, 24-hour supervision, emergency response, and a full daily activities program.</p>
+            <span class="svc-card-link">Explore →</span>
+          </div>
+        </a>
+        <a href="infection-control.html" class="svc-card reveal reveal-delay-3">
+          <div class="svc-card-icon">🛡️</div>
+          <div class="svc-card-body">
+            <div class="svc-card-title">Infection Prevention &amp; Control</div>
+            <p class="svc-card-desc">Robust IPAC practices protecting our residents and staff, with transparent reporting and adherence to all provincial health guidelines.</p>
+            <span class="svc-card-link">View policy →</span>
+          </div>
+        </a>
+        <a href="about.html#calendar" class="svc-card reveal reveal-delay-4">
+          <div class="svc-card-icon">🎭</div>
+          <div class="svc-card-body">
+            <div class="svc-card-title">Recreation &amp; Activities</div>
+            <p class="svc-card-desc">Our full-time recreation team runs daily programs, outings, and evening events — fostering connection, joy, and community belonging.</p>
+            <span class="svc-card-link">See calendar →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 4: CALENDAR TEASER ═══ -->
+<section class="slide-section calendar-teaser" data-section="calendar" style="min-height:60vh;">
+  <div class="cal-text">
+    <div class="section-eyebrow light">Monthly Programming</div>
+    <h2 class="section-title light" style="margin-bottom:20px;">Vibrant Daily<br><em>Activities</em></h2>
+    <p class="section-body light" style="margin-bottom:36px;">Our full-time recreation team ensures every resident has opportunities to engage, connect, and enjoy life — whether daytime programs, evening events, or community outings.</p>
+    <a href="about.html#calendar" class="btn btn-gold">View Monthly Calendar &amp; Newsletter</a>
+  </div>
+  <div class="cal-visual">
+    <div class="cal-card">
+      <div class="cal-month">June 2026 Highlights</div>
+      <div class="cal-grid">
+        <div class="cal-day-label">Su</div><div class="cal-day-label">Mo</div><div class="cal-day-label">Tu</div><div class="cal-day-label">We</div><div class="cal-day-label">Th</div><div class="cal-day-label">Fr</div><div class="cal-day-label">Sa</div>
+        <div class="cal-day"></div><div class="cal-day"></div><div class="cal-day"></div><div class="cal-day"></div><div class="cal-day"></div><div class="cal-day"></div><div class="cal-day">1</div>
+        <div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day event">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div>
+        <div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day event">11</div><div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div>
+        <div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day event">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day today">22</div>
+        <div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day event">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div>
+        <div class="cal-day">30</div>
+      </div>
+      <div class="cal-note">✦ Music afternoons · Garden walks · Craft sessions · Movie evenings · Birthday celebrations</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 5: JOIN TEAM ═══ -->
+<section class="slide-section join-team" data-section="join" style="min-height:auto;">
+  <div class="join-team-inner reveal">
+    <div class="section-eyebrow gold" style="justify-content:center;margin-bottom:24px;">Careers</div>
+    <h2>Join Our Team</h2>
+    <p>We're always looking for dedicated, compassionate people to be part of the Eden House family. Nurses, PSWs, recreation staff and volunteers are all welcome.</p>
+    <a href="contact.html" class="btn btn-gold">Get In Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <span class="footer-brand-name">Eden House Care Facility</span>
+      <p class="footer-brand-desc">A people-centred 58-bed nursing home and 20-bed retirement home nestled between Rockwood, Eden Mills and Guelph. Serving our community since 1968.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="long-term-care.html">Long-Term Care</a></li>
+        <li><a href="retirement-home.html">Retirement Home</a></li>
+        <li><a href="infection-control.html">Infection &amp; Control</a></li>
+        <li><a href="legislation.html">Legislation / Reports</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links">
+        <li><a href="legislation.html#emergency">Emergency Plan</a></li>
+        <li><a href="legislation.html#visitor">Visitor Policy</a></li>
+        <li><a href="legislation.html#privacy">Privacy Policy</a></li>
+        <li><a href="legislation.html#fire">Fire Safety Plan</a></li>
+        <li><a href="legislation.html#aoda">AODA Plan</a></li>
+        <li><a href="https://rnao.ca/" target="_blank">RNAO</a></li>
+        <li><a href="https://guelphwellingtonoht.com/" target="_blank">GW OHT</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>5016 Wellington County Rd. 29, Guelph, ON N1H 6H8</span></div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">📞</span><span>(519) 856-4622</span></div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">📠</span><span>Fax: (519) 856-9171</span></div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">✉️</span><span>admin@edenhousecarehome.ca</span></div>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    <div>© 2024 Eden House Care Facility Inc. · Est. 1968 · All rights reserved.</div>
+    <div><a href="legislation.html">Legislation &amp; Reports</a> &nbsp;·&nbsp; <a href="legislation.html#privacy">Privacy Policy</a></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
