@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Eden House Care Facility</title>
+<meta name="description" content="Photo gallery of Eden House Care Facility — lush grounds, Memorial Garden, common areas, resident activities and more.">
+<link rel="stylesheet" href="style.css">
+<style>
+.gallery-filter { display: flex; gap: 10px; flex-wrap: wrap; margin: 40px 0 48px; }
+.filter-btn { padding: 9px 20px; border-radius: 40px; border: 1.5px solid var(--sage-light); background: transparent; font-size: 0.78rem; font-weight: 500; color: var(--text-muted); cursor: pointer; letter-spacing: 0.06em; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.filter-btn.active, .filter-btn:hover { background: var(--forest); color: #fff; border-color: var(--forest); }
+.gallery-masonry { columns: 3; column-gap: 16px; }
+.gallery-item { break-inside: avoid; margin-bottom: 16px; border-radius: 14px; overflow: hidden; position: relative; cursor: zoom-in; }
+.gallery-item img { width: 100%; display: block; transition: transform 0.45s ease; }
+.gallery-item:hover img { transform: scale(1.04); }
+.gallery-item-overlay { position: absolute; inset: 0; background: rgba(44,74,48,0.35); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 20px; }
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+.gallery-item-caption { color: #fff; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; }
+/* LIGHTBOX */
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 2000; align-items: center; justify-content: center; padding: 24px; }
+.lightbox.open { display: flex; }
+.lightbox-inner { position: relative; max-width: 900px; width: 100%; }
+.lightbox-inner img { width: 100%; border-radius: 12px; max-height: 85vh; object-fit: contain; }
+.lightbox-close { position: absolute; top: -48px; right: 0; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; opacity: 0.7; transition: opacity 0.2s; }
+.lightbox-close:hover { opacity: 1; }
+.lightbox-caption { text-align: center; color: rgba(255,255,255,0.7); font-size: 0.84rem; margin-top: 14px; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); display: flex; justify-content: space-between; width: calc(100% + 80px); left: -40px; pointer-events: none; }
+.lightbox-nav button { pointer-events: all; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; transition: background 0.2s; }
+.lightbox-nav button:hover { background: rgba(255,255,255,0.25); }
+.invite-band { background: var(--sage); text-align: center; }
+.invite-band .section-title { color: #fff; }
+.invite-band .section-eyebrow { color: rgba(255,255,255,0.65); }
+.invite-band p { color: rgba(255,255,255,0.82); font-size: 0.93rem; max-width: 520px; margin: 0 auto 36px; line-height: 1.75; }
+@media (max-width: 768px) { .gallery-masonry { columns: 2; } }
+@media (max-width: 480px) { .gallery-masonry { columns: 1; } .lightbox-nav { display: none; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="long-term-care.html">Long-Term Care</a></li>
+    <li><a href="retirement-home.html">Retirement Home</a></li>
+    <li><a href="infection-control.html">Infection &amp; Control</a></li>
+    <li><a href="legislation.html">Legislation</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html" class="btn-contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="long-term-care.html" onclick="toggleMenu()">Long-Term Care</a>
+  <a href="retirement-home.html" onclick="toggleMenu()">Retirement Home</a>
+  <a href="infection-control.html" onclick="toggleMenu()">Infection &amp; Control</a>
+  <a href="legislation.html" onclick="toggleMenu()">Legislation / Reports</a>
+  <a href="gallery.html" onclick="toggleMenu()">Gallery</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero dark-bg">
+  <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>Gallery</p>
+  <h1>Photo <em>Gallery</em></h1>
+  <p>Take a look inside Eden House — our grounds, common areas, gardens, and the vibrant life our residents enjoy every day.</p>
+</div>
+
+<!-- GALLERY -->
+<section class="section" style="background:var(--warm-white)">
+  <div class="reveal">
+    <p class="section-eyebrow">Our Home in Pictures</p>
+    <h2 class="section-title">Life at <em>Eden House</em></h2>
+    <p class="section-lead">Eden House is more than a care facility — it's a home surrounded by lush grounds and a peaceful Memorial Garden, with warm common areas and a vibrant community of residents, staff and families.</p>
+  </div>
+
+  <div class="gallery-masonry reveal" style="transition-delay:0.1s" id="galleryGrid">
+    <div class="gallery-item" onclick="openLightbox(0)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00249.jpg" alt="Eden House exterior" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Eden House Exterior</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(1)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC02683.jpg" alt="Resident activities" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Resident Activities</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(2)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00215-768x621.jpeg" alt="Creative arts" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Creative Arts &amp; Crafts</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(3)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00276.jpeg" alt="Grounds and garden" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Lush Grounds</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(4)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSCN3108-300x225.jpg" alt="Retirement home room" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Retirement Suite</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(5)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2025/03/Screenshot-2025-03-31-at-2.06.15-PM-300x225.png" alt="Common area" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Common Area</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(6)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2025/03/Screenshot-2025-03-31-at-2.06.26-PM-300x222.png" alt="Lounge" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Lounge Area</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(7)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSCN3120-1-300x225.jpg" alt="Care room" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Care Room</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(8)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/20210503_140145-2-300x214.jpg" alt="Outdoor area" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Outdoor Area</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(9)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/20210510_121259-1-300x169.jpg" alt="Garden walk" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Garden Walk</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(10)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.43.49-AM-1024x661.png" alt="Recent activities" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">Recent Activities</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(11)">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.34.13-PM-1024x662.png" alt="Activities June 2026" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-caption">June 2026 Activities</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INVITE BAND -->
+<section class="section invite-band">
+  <p class="section-eyebrow">Come See For Yourself</p>
+  <h2 class="section-title">Book a <em>Tour</em></h2>
+  <p>Photos only tell part of the story. We invite you and your family to visit Eden House in person and experience the warmth of our community for yourselves.</p>
+  <a href="contact.html" class="btn-white">Schedule a Visit</a>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <div class="lightbox-nav">
+      <button onclick="lightboxNav(-1)" aria-label="Previous">&#8592;</button>
+      <button onclick="lightboxNav(1)" aria-label="Next">&#8594;</button>
+    </div>
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
+    <p>A people-centred 58-bed nursing home and 20-bed retirement home nestled between Rockwood, Eden Mills and Guelph. Serving our community since 1968.</p>
+  </div>
+  <div>
+    <h4>Navigation</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="long-term-care.html">Long-Term Care</a></li>
+      <li><a href="retirement-home.html">Retirement Home</a></li>
+      <li><a href="infection-control.html">Infection &amp; Control</a></li>
+      <li><a href="legislation.html">Legislation / Reports</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Resources</h4>
+    <ul>
+      <li><a href="legislation.html#emergency">Emergency Plan</a></li>
+      <li><a href="legislation.html#visitor">Visitor Policy</a></li>
+      <li><a href="legislation.html#privacy">Privacy Policy</a></li>
+      <li><a href="legislation.html#fire">Fire Safety Plan</a></li>
+      <li><a href="legislation.html#aoda">AODA Plan</a></li>
+      <li><a href="https://rnao.ca/" target="_blank" rel="noopener">RNAO</a></li>
+      <li><a href="https://guelphwellingtonoht.com/" target="_blank" rel="noopener">GW OHT</a></li>
+    </ul>
+  </div>
+  <div class="footer-contact">
+    <h4>Contact</h4>
+    <p>📍 5016 Wellington County Rd. 29,<br>Guelph, ON N1H 6H8</p>
+    <p>📞 <a href="tel:+15198564622">(519) 856-4622</a></p>
+    <p>📠 Fax: (519) 856-9171</p>
+    <p>✉️ <a href="mailto:admin@edenhousecarehome.ca">admin@edenhousecarehome.ca</a></p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Eden House Care Facility Inc. · Est. 1968 · All rights reserved.</span>
+  <span><a href="legislation.html">Legislation &amp; Reports</a> · <a href="legislation.html#privacy">Privacy Policy</a></span>
+</div>
+
+<script src="main.js"></script>
+<script>
+const galleryItems = Array.from(document.querySelectorAll('.gallery-item img'));
+let currentLightbox = 0;
+function openLightbox(i) {
+  currentLightbox = i;
+  document.getElementById('lightboxImg').src = galleryItems[i].src;
+  document.getElementById('lightboxImg').alt = galleryItems[i].alt;
+  document.getElementById('lightboxCaption').textContent = galleryItems[i].alt;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLightboxOutside(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
+function lightboxNav(dir) {
+  currentLightbox = (currentLightbox + dir + galleryItems.length) % galleryItems.length;
+  document.getElementById('lightboxImg').src = galleryItems[currentLightbox].src;
+  document.getElementById('lightboxImg').alt = galleryItems[currentLightbox].alt;
+  document.getElementById('lightboxCaption').textContent = galleryItems[currentLightbox].alt;
+}
+document.addEventListener('keydown', e => {
+  if (document.getElementById('lightbox').classList.contains('open')) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lightboxNav(-1);
+    if (e.key === 'ArrowRight') lightboxNav(1);
+  }
+});
+</script>
+</body>
+</html>

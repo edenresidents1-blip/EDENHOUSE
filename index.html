@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Eden House Care Facility</title>
+<meta name="description" content="Eden House Care Facility — a community-oriented 58-bed nursing home and 20-bed retirement home nestled between Rockwood, Eden Mills and Guelph. Est. 1968.">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── HERO ── */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px 80px 80px; }
+.hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: var(--gold); margin-bottom: 24px; }
+.hero-desc { font-size: 0.95rem; line-height: 1.78; color: var(--text-muted); max-width: 460px; margin-bottom: 40px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
+.hero-right { display: grid; grid-template-rows: 1fr 1fr; }
+.hero-img-main { background: url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00249.jpg') center/cover no-repeat; }
+.hero-img-row { display: grid; grid-template-columns: 1fr 1fr; }
+.hero-img-a { background: url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00276.jpeg') center/cover no-repeat; }
+.hero-img-b { background: var(--sage-pale); display: flex; align-items: center; justify-content: center; padding: 32px; text-align: center; }
+.hero-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.hero-badge-icon { font-size: 2.2rem; }
+.hero-badge-text { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--forest); font-weight: 600; }
+.hero-badge-sub { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.06em; }
+.reviews-bar { display: flex; align-items: center; gap: 12px; background: var(--sage-pale); border: 1px solid var(--sage-light); border-radius: 40px; padding: 10px 20px; max-width: fit-content; }
+.reviews-bar .stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; }
+.reviews-bar p { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ── ABOUT STRIP ── */
+.about-strip { background: var(--warm-white); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-img-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 280px 180px; gap: 12px; }
+.about-img { border-radius: 10px; overflow: hidden; }
+.about-img img { width: 100%; height: 100%; object-fit: cover; }
+.about-img:first-child { grid-column: 1 / -1; }
+.accred-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+
+/* ── MISSION VALUES ── */
+.mission-band { background: var(--forest); }
+.mission-band .section-eyebrow { color: var(--gold-light); }
+.mission-band .section-title { color: #fff; }
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 52px; }
+.mv-panel { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; }
+.mv-panel h3 { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px; font-weight: 600; }
+.mv-panel p { font-size: 0.86rem; color: rgba(255,255,255,0.7); line-height: 1.75; }
+.values-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.v-chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 18px; }
+.v-chip h4 { font-size: 0.82rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+.v-chip p { font-size: 0.76rem; color: rgba(255,255,255,0.52); line-height: 1.55; }
+
+/* ── SERVICES GRID ── */
+.services-bg { background: var(--stone); }
+.svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 48px; }
+.svc-card { background: #fff; border-radius: 20px; padding: 38px; border: 1px solid rgba(123,155,126,0.18); box-shadow: 0 2px 18px rgba(44,74,48,0.05); transition: box-shadow 0.3s, transform 0.25s; text-decoration: none; color: inherit; display: block; }
+.svc-card:hover { box-shadow: 0 14px 44px rgba(44,74,48,0.13); transform: translateY(-3px); }
+.svc-icon { font-size: 2.2rem; margin-bottom: 18px; }
+.svc-title { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: var(--forest); margin-bottom: 14px; }
+.svc-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.svc-list li { font-size: 0.84rem; color: var(--text-muted); padding-left: 14px; position: relative; line-height: 1.5; }
+.svc-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+.svc-cta { display: inline-flex; align-items: center; gap: 7px; margin-top: 24px; font-size: 0.76rem; font-weight: 600; color: var(--forest); text-transform: uppercase; letter-spacing: 0.07em; border-bottom: 1px solid var(--sage-light); padding-bottom: 2px; text-decoration: none; }
+.svc-arrow { transition: transform 0.2s; }
+.svc-card:hover .svc-arrow { transform: translateX(4px); }
+
+/* ── CALENDAR ── */
+.cal-bg { background: var(--sage-pale); text-align: center; }
+.cal-tabs { display: flex; gap: 0; background: var(--stone); border-radius: 40px; padding: 4px; max-width: 420px; margin: 0 auto 48px; }
+.tab-btn { flex: 1; padding: 10px 20px; border: none; border-radius: 36px; background: transparent; font-size: 0.78rem; font-weight: 500; color: var(--text-muted); cursor: pointer; transition: 0.2s; letter-spacing: 0.06em; }
+.tab-btn.active { background: var(--forest); color: #fff; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── ACTIVITIES ── */
+.act-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 48px; }
+.act-card { border-radius: 16px; overflow: hidden; height: 300px; position: relative; }
+.act-bg { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.5s; }
+.act-card:hover .act-bg { transform: scale(1.05); }
+.act-overlay { position: absolute; inset: 0; background: linear-gradient(180deg,transparent 35%,rgba(29,44,30,.82) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 26px; color: #fff; }
+.act-tag { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; background: var(--gold); color: var(--forest); padding: 3px 10px; border-radius: 4px; font-weight: 700; width: fit-content; margin-bottom: 8px; }
+.act-name { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; line-height: 1.2; }
+
+/* ── RNAO ── */
+.rnao-strip { background: var(--stone); display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+.rnao-badge { background: var(--forest); border-radius: 18px; padding: 36px 48px; text-align: center; color: #fff; flex-shrink: 0; min-width: 200px; }
+.rnao-badge .big { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 600; }
+.rnao-badge .sub { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-top: 6px; display: block; }
+
+/* ── JOIN TEAM ── */
+.join-band { background: var(--sage); text-align: center; }
+.join-band .section-title { color: #fff; }
+.join-band .section-eyebrow { color: rgba(255,255,255,.6); }
+.join-band p { font-size: .95rem; color: rgba(255,255,255,.82); max-width: 500px; margin: 0 auto 36px; line-height: 1.75; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 60px 40px; }
+  .hero-right { height: 400px; }
+  .hero-img-row { display: none; }
+  .about-strip { grid-template-columns: 1fr; }
+  .mv-grid { grid-template-columns: 1fr; }
+  .svc-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .act-grid { grid-template-columns: 1fr 1fr; }
+  .values-chips { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .hero-left { padding: 48px 18px; }
+  .act-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="long-term-care.html">Long-Term Care</a></li>
+    <li><a href="retirement-home.html">Retirement Home</a></li>
+    <li><a href="infection-control.html">Infection &amp; Control</a></li>
+    <li><a href="legislation.html">Legislation</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="btn-contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="long-term-care.html" onclick="toggleMenu()">Long-Term Care</a>
+  <a href="retirement-home.html" onclick="toggleMenu()">Retirement Home</a>
+  <a href="infection-control.html" onclick="toggleMenu()">Infection &amp; Control</a>
+  <a href="legislation.html" onclick="toggleMenu()">Legislation / Reports</a>
+  <a href="gallery.html" onclick="toggleMenu()">Gallery</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="section-eyebrow">Nestled between Rockwood, Eden Mills &amp; Guelph</p>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5.5rem);font-weight:300;line-height:1.05;color:var(--forest);margin-bottom:10px;">Eden House<br><em style="font-style:italic;color:var(--sage);">Care Facility</em></h1>
+    <p class="hero-tagline">"A Nice Place to Live"</p>
+    <p class="hero-desc">A community-oriented 58-bed nursing home and 20-bed retirement home. A pillar in the community for over 55 years, excelling in resident-centred care. Licensed by the Ministry of Long-Term Care and Retirement Homes Regulatory Authority.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">Book a Tour</a>
+      <a href="about.html" class="btn-outline">Our Story</a>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item"><span class="stat-num">55+</span><span class="stat-label">Years of Service</span></div>
+      <div class="stat-item"><span class="stat-num">58</span><span class="stat-label">LTC Beds</span></div>
+      <div class="stat-item"><span class="stat-num">20</span><span class="stat-label">Retirement Suites</span></div>
+      <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Nursing Care</span></div>
+    </div>
+    <div class="reviews-bar">
+      <span class="stars">★★★★★</span>
+      <p>"Scenic and homely location" · "Professional, caring staff" · Google Reviews</p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-main"></div>
+    <div class="hero-img-row">
+      <div class="hero-img-a"></div>
+      <div class="hero-img-b">
+        <div class="hero-badge">
+          <div class="hero-badge-icon">🌿</div>
+          <div class="hero-badge-text">RNAO Partner</div>
+          <div class="hero-badge-sub">Best Practice Organization</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section class="section about-strip">
+  <div class="about-img-grid reveal">
+    <div class="about-img"><img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00249.jpg" alt="Eden House exterior" loading="lazy"></div>
+    <div class="about-img"><img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC02683.jpg" alt="Residents" loading="lazy"></div>
+    <div class="about-img"><img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00215-768x621.jpeg" alt="Common area" loading="lazy"></div>
+  </div>
+  <div class="reveal" style="transition-delay:0.15s">
+    <p class="section-eyebrow">Who We Are</p>
+    <h2 class="section-title">A Community<br><em>Cornerstone Since 1968</em></h2>
+    <p class="section-lead">Eden House is a people-centred care home surrounded by lush grounds and a beautiful Memorial Garden. Licensed by the Ministry of Long-Term Care and the Retirement Homes Regulatory Authority. Together with our staff, professional associates and volunteers, we strive every day to make Eden House <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--sage);">"a nice place to live."</em></p>
+    <div class="accred-pills">
+      <span class="pill">✓ Ministry Licensed</span>
+      <span class="pill">✓ RHRA Certified</span>
+      <span class="pill">✓ RNAO Member</span>
+      <span class="pill">✓ BPSO Designated</span>
+      <span class="pill">✓ Memorial Garden</span>
+    </div>
+    <a href="about.html" class="btn-primary" style="margin-top:28px;">Learn More About Us</a>
+  </div>
+</section>
+
+<!-- MISSION, VISION & VALUES -->
+<section class="section mission-band">
+  <div class="reveal" style="text-align:center;max-width:620px;margin:0 auto 0">
+    <p class="section-eyebrow">What Guides Us</p>
+    <h2 class="section-title">Mission, Vision<br><em>&amp; Values</em></h2>
+    <p style="font-size:0.93rem;color:rgba(255,255,255,0.62);max-width:500px;margin:0 auto;line-height:1.75;">Every decision at Eden House is guided by principles that place residents and their families at the centre of everything we do.</p>
+  </div>
+  <div class="mv-grid">
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <div class="mv-panel reveal" style="transition-delay:0.05s">
+        <h3>Mission</h3>
+        <p>Eden House is committed to providing exemplary long-term care services to Residents. Our focus is on individualized care that respects, supports and enables Residents to be as independent as possible.</p>
+      </div>
+      <div class="mv-panel reveal" style="transition-delay:0.12s">
+        <h3>Vision</h3>
+        <p>Eden House strives to be a leader in the long-term care field, recognized for high quality care and its commitment to working in partnership with Residents and their families. We strive to design and deliver programming that meets the growing and changing needs of Residents and the community we serve.</p>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:0.1s">
+      <p style="font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;font-weight:600;">Our Core Values</p>
+      <div class="values-chips">
+        <div class="v-chip"><h4>Accountability</h4><p>Individuals and groups are accountable for tasks delegated to them.</p></div>
+        <div class="v-chip"><h4>Compassion</h4><p>We respect individual feelings, needs and wishes in all care.</p></div>
+        <div class="v-chip"><h4>Excellence</h4><p>We strive to provide the highest quality care in everything we do.</p></div>
+        <div class="v-chip"><h4>Teamwork</h4><p>We achieve more by working together for a common purpose.</p></div>
+        <div class="v-chip"><h4>Innovation</h4><p>Creativity assists us in achieving effective use of resources.</p></div>
+        <div class="v-chip"><h4>Safety</h4><p>We create a culture of safety for all who live and work here.</p></div>
+        <div class="v-chip"><h4>Customer Focus</h4><p>We design our work processes with a focus on satisfaction.</p></div>
+        <div class="v-chip"><h4>Ethical Care</h4><p>Decisions are sensitive to moral, cultural and personal issues.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-bg">
+  <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 0">
+    <p class="section-eyebrow">Care Options</p>
+    <h2 class="section-title">Care That Meets You<br><em>Where You Are</em></h2>
+    <p class="section-lead" style="margin:0 auto;">Eden House provides comprehensive care services tailored to each resident — from nursing support around the clock to vibrant social programming.</p>
+  </div>
+  <div class="svc-grid">
+    <a class="svc-card reveal" href="long-term-care.html" style="transition-delay:0.08s">
+      <div class="svc-icon">🏥</div>
+      <div class="svc-title">Long-Term Care Home</div>
+      <ul class="svc-list">
+        <li>Licensed by the Ministry of Health and Long-Term Care</li>
+        <li>Resident-centred nursing &amp; personal care 24 hours per day</li>
+        <li>Private, semi-private and ward accommodations</li>
+        <li>Medical care and physician supervision on-site</li>
+        <li>On-site pharmacy services &amp; medication assistance</li>
+        <li>Three meals daily with menu-style service plus snacks</li>
+        <li>Dietician assessment and therapeutic diets</li>
+        <li>Daily housekeeping and laundry services</li>
+      </ul>
+      <span class="svc-cta">Explore Long-Term Care <span class="svc-arrow">→</span></span>
+    </a>
+    <a class="svc-card reveal" href="retirement-home.html" style="transition-delay:0.16s">
+      <div class="svc-icon">🏡</div>
+      <div class="svc-title">Retirement Home</div>
+      <ul class="svc-list">
+        <li>20 private suites with all utilities included</li>
+        <li>24-hour supervision by trained staff</li>
+        <li>Emergency response system throughout facility</li>
+        <li>Three meals daily plus morning, afternoon &amp; evening snacks</li>
+        <li>Medication administration and supervision</li>
+        <li>Daily laundry — personal clothing and bed linens</li>
+        <li>Full housekeeping services</li>
+        <li>Daily activities programming including community outings</li>
+      </ul>
+      <span class="svc-cta">Explore Retirement Home <span class="svc-arrow">→</span></span>
+    </a>
+    <a class="svc-card reveal" href="infection-control.html" style="transition-delay:0.24s">
+      <div class="svc-icon">🛡️</div>
+      <div class="svc-title">Infection Prevention &amp; Control</div>
+      <ul class="svc-list">
+        <li>Robust IPAC practices protecting residents and staff</li>
+        <li>Full compliance with Ministry of Long-Term Care directives</li>
+        <li>Regular audits and continuous quality improvement</li>
+        <li>Transparent public reporting and open policies</li>
+        <li>Staff trained on current best-practice IPAC protocols</li>
+      </ul>
+      <span class="svc-cta">View IPC Policies <span class="svc-arrow">→</span></span>
+    </a>
+    <a class="svc-card reveal" href="about.html#calendar" style="transition-delay:0.32s">
+      <div class="svc-icon">🎭</div>
+      <div class="svc-title">Recreation &amp; Activities</div>
+      <ul class="svc-list">
+        <li>Full-time recreation team on staff</li>
+        <li>Daily programs — daytime and evening</li>
+        <li>Music, crafts, exercise and social events</li>
+        <li>Regular community outings and excursions</li>
+        <li>Monthly calendar and newsletter for families</li>
+        <li>Birthday celebrations and seasonal events</li>
+      </ul>
+      <span class="svc-cta">See Monthly Calendar <span class="svc-arrow">→</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="section cal-bg">
+  <div class="reveal" style="max-width:680px;margin:0 auto 56px;text-align:center">
+    <p class="section-eyebrow">Monthly Programming</p>
+    <h2 class="section-title">Activities Calendar<br><em>&amp; Newsletter</em></h2>
+    <p class="section-lead" style="margin:0 auto;">Our full-time recreation team encourages residents to join a daily program of activities — daytime and evening — providing opportunities to interact and enjoy one another's company.</p>
+  </div>
+  <div class="cal-tabs reveal" style="transition-delay:0.1s">
+    <button class="tab-btn active" onclick="switchTab(event,'ltc')">Long-Term Care</button>
+    <button class="tab-btn" onclick="switchTab(event,'ret')">Retirement Home</button>
+  </div>
+  <div class="tab-panel active" id="tab-ltc">
+    <div class="slider-scene"><div class="slider-track" id="slider-ltc"></div></div>
+    <div class="slider-nav">
+      <button class="slider-btn" id="ltc-prev" aria-label="Previous">&#8592;</button>
+      <div class="slider-dots" id="dots-ltc"></div>
+      <button class="slider-btn" id="ltc-next" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+  <div class="tab-panel" id="tab-ret">
+    <div class="slider-scene"><div class="slider-track" id="slider-ret"></div></div>
+    <div class="slider-nav">
+      <button class="slider-btn" id="ret-prev" aria-label="Previous">&#8592;</button>
+      <div class="slider-dots" id="dots-ret"></div>
+      <button class="slider-btn" id="ret-next" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+  <p class="reveal" style="text-align:center;margin-top:40px;font-size:0.82rem;color:var(--text-muted);font-style:italic;">📌 Updated monthly — check back for the latest programming and newsletter.</p>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="section" style="background:var(--warm-white)">
+  <div class="reveal" style="text-align:center">
+    <p class="section-eyebrow">Life at Eden House</p>
+    <h2 class="section-title">Vibrant Daily <em>Activities</em></h2>
+    <p class="section-lead" style="max-width:540px;margin:0 auto;">Our dedicated recreation team creates meaningful daily programming designed to nurture body, mind and spirit for every resident.</p>
+  </div>
+  <div class="act-grid">
+    <div class="act-card reveal" style="transition-delay:0.05s">
+      <div class="act-bg" style="background-image:url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC02683.jpg')"></div>
+      <div class="act-overlay"><span class="act-tag">Outdoor</span><span class="act-name">Gardening &amp; Nature</span></div>
+    </div>
+    <div class="act-card reveal" style="transition-delay:0.1s">
+      <div class="act-bg" style="background-image:url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00215-768x621.jpeg')"></div>
+      <div class="act-overlay"><span class="act-tag">Crafts</span><span class="act-name">Creative Arts &amp; Crafts</span></div>
+    </div>
+    <div class="act-card reveal" style="transition-delay:0.15s">
+      <div class="act-bg" style="background-image:url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00249.jpg')"></div>
+      <div class="act-overlay"><span class="act-tag">Social</span><span class="act-name">Dining &amp; Community</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RNAO -->
+<section class="section rnao-strip">
+  <div class="rnao-badge reveal">
+    <div style="font-size:2.5rem;margin-bottom:8px;">🏅</div>
+    <div class="big">RNAO</div>
+    <span class="sub">Best Practice<br>Spotlight Organization</span>
+  </div>
+  <div class="reveal" style="flex:1;min-width:260px;transition-delay:0.15s">
+    <p class="section-eyebrow">Our Accreditation</p>
+    <h2 class="section-title">Registered Nurses Association<br><em>of Ontario</em></h2>
+    <p class="section-lead">Eden House is proud to be affiliated with the Registered Nurses Association of Ontario (RNAO) as a Best Practice Spotlight Organization — reflecting our commitment to evidence-based, highest-quality nursing care for every resident.</p>
+    <a href="https://rnao.ca/" target="_blank" rel="noopener" class="btn-outline" style="margin-top:24px;">Visit RNAO.ca</a>
+  </div>
+</section>
+
+<!-- JOIN TEAM -->
+<section class="section join-band">
+  <p class="section-eyebrow">Careers</p>
+  <h2 class="section-title">Join Our <em>Team</em></h2>
+  <p>We're always looking for dedicated, compassionate people to be part of the Eden House family. Nurses, PSWs, recreation staff and volunteers are all welcome.</p>
+  <a href="contact.html" class="btn-white">Get In Touch</a>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
+    <p>A people-centred 58-bed nursing home and 20-bed retirement home nestled between Rockwood, Eden Mills and Guelph. Serving our community since 1968.</p>
+  </div>
+  <div>
+    <h4>Navigation</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="long-term-care.html">Long-Term Care</a></li>
+      <li><a href="retirement-home.html">Retirement Home</a></li>
+      <li><a href="infection-control.html">Infection &amp; Control</a></li>
+      <li><a href="legislation.html">Legislation / Reports</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Resources</h4>
+    <ul>
+      <li><a href="legislation.html#emergency">Emergency Plan</a></li>
+      <li><a href="legislation.html#visitor">Visitor Policy</a></li>
+      <li><a href="legislation.html#privacy">Privacy Policy</a></li>
+      <li><a href="legislation.html#fire">Fire Safety Plan</a></li>
+      <li><a href="legislation.html#aoda">AODA Plan</a></li>
+      <li><a href="https://rnao.ca/" target="_blank" rel="noopener">RNAO</a></li>
+      <li><a href="https://guelphwellingtonoht.com/" target="_blank" rel="noopener">GW OHT</a></li>
+    </ul>
+  </div>
+  <div class="footer-contact">
+    <h4>Contact</h4>
+    <p>📍 5016 Wellington County Rd. 29,<br>Guelph, ON N1H 6H8</p>
+    <p>📞 <a href="tel:+15198564622">(519) 856-4622</a></p>
+    <p>📠 Fax: (519) 856-9171</p>
+    <p>✉️ <a href="mailto:admin@edenhousecarehome.ca">admin@edenhousecarehome.ca</a></p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Eden House Care Facility Inc. · Est. 1968 · All rights reserved.</span>
+  <span><a href="legislation.html">Legislation &amp; Reports</a> · <a href="legislation.html#privacy">Privacy Policy</a></span>
+</div>
+
+<script src="main.js"></script>
+<script>
+function switchTab(e, key) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + key).classList.add('active');
+  e.target.classList.add('active');
+}
+// ADD NEW MONTHS HERE (newest first)
+const ltcSlides = [
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.34.13-PM-1024x662.png', label: 'LTC Calendar – June 2026' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.34.37-PM-790x1024.png', label: 'LTC Newsletter – June 2026' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.34.46-PM-797x1024.png', label: 'LTC Calendar – June 2026 (pg. 2)' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.34.55-PM-797x1024.png', label: 'LTC Newsletter – June 2026 (pg. 2)' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.35.02-PM-796x1024.png', label: 'LTC June 2026 – Activities' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.41.50-AM-802x1024.png', label: 'LTC Calendar – May 2026' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.41.57-AM-795x1024.png', label: 'LTC Newsletter – May 2026' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.42.08-AM-789x1024.png', label: 'LTC Calendar – May 2026 (pg. 2)' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.42.15-AM-794x1024.png', label: 'LTC Newsletter – May 2026 (pg. 2)' },
+];
+const retSlides = [
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-10.22.04-AM-1024x660.png', label: 'Retirement Calendar – May 2026' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.41.50-AM-1-802x1024.png', label: 'Retirement Newsletter – May 2026' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.42.08-AM-1-789x1024.png', label: 'Retirement Calendar – May 2026 (pg. 2)' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.42.15-AM-1-794x1024.png', label: 'Retirement Newsletter – May 2026 (pg. 2)' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.41.57-AM-1-795x1024.png', label: 'Retirement Newsletter – May 2026 (pg. 3)' },
+  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/04/Screenshot-2026-04-29-at-7.31.56-PM-1024x660.png', label: 'Retirement Calendar – April 2026' },
+];
+const ltcCtrl = buildSlider('slider-ltc','dots-ltc', ltcSlides);
+const retCtrl = buildSlider('slider-ret','dots-ret', retSlides);
+document.getElementById('ltc-prev').addEventListener('click', () => ltcCtrl.prev());
+document.getElementById('ltc-next').addEventListener('click', () => ltcCtrl.next());
+document.getElementById('ret-prev').addEventListener('click', () => retCtrl.prev());
+document.getElementById('ret-next').addEventListener('click', () => retCtrl.next());
+setInterval(() => {
+  if (document.getElementById('tab-ltc').classList.contains('active')) ltcCtrl.next();
+  else retCtrl.next();
+}, 4500);
+</script>
+</body>
+</html>

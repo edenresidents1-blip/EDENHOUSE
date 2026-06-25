@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Eden House Care Facility</title>
+<meta name="description" content="Contact Eden House Care Facility — 5016 Wellington County Rd. 29, Guelph, ON. Phone: (519) 856-4622. Email: admin@edenhousecarehome.ca.">
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+.contact-info-items { display: flex; flex-direction: column; gap: 0; margin-top: 36px; }
+.contact-info-item { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--stone); align-items: flex-start; }
+.contact-info-item:last-child { border-bottom: none; }
+.ci-icon { width: 48px; height: 48px; min-width: 48px; background: var(--sage-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.ci-body h4 { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px; font-weight: 600; }
+.ci-body p, .ci-body a { font-size: 0.95rem; color: var(--text); text-decoration: none; font-weight: 500; display: block; line-height: 1.55; }
+.ci-body a:hover { color: var(--sage); }
+.form-card { background: var(--sage-pale); border-radius: 22px; padding: 48px; }
+.form-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--forest); margin-bottom: 30px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-group label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.form-group input, .form-group select, .form-group textarea {
+  padding: 12px 16px; border: 1.5px solid var(--stone); border-radius: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--text);
+  background: #fff; outline: none; transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--sage); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.btn-submit { width: 100%; background: var(--forest); color: #fff; border: none; padding: 15px; border-radius: 40px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: background 0.25s; margin-top: 6px; font-family: 'Inter', sans-serif; }
+.btn-submit:hover { background: var(--sage); }
+.map-section { background: var(--stone); }
+.map-wrapper { border-radius: 16px; overflow: hidden; height: 420px; margin-top: 48px; box-shadow: 0 4px 32px rgba(44,74,48,0.1); }
+.map-wrapper iframe { width: 100%; height: 100%; border: none; display: block; }
+.hours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+.hours-card { background: #fff; border-radius: 16px; padding: 28px; border: 1px solid var(--sage-light); }
+.hours-card .icon { font-size: 1.8rem; margin-bottom: 12px; }
+.hours-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--forest); margin-bottom: 8px; }
+.hours-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; }
+@media (max-width: 960px) { .contact-grid { grid-template-columns: 1fr; gap: 44px; } .hours-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } .hours-grid { grid-template-columns: 1fr; } .form-card { padding: 28px 20px; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="long-term-care.html">Long-Term Care</a></li>
+    <li><a href="retirement-home.html">Retirement Home</a></li>
+    <li><a href="infection-control.html">Infection &amp; Control</a></li>
+    <li><a href="legislation.html">Legislation</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="btn-contact active">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="long-term-care.html" onclick="toggleMenu()">Long-Term Care</a>
+  <a href="retirement-home.html" onclick="toggleMenu()">Retirement Home</a>
+  <a href="infection-control.html" onclick="toggleMenu()">Infection &amp; Control</a>
+  <a href="legislation.html" onclick="toggleMenu()">Legislation / Reports</a>
+  <a href="gallery.html" onclick="toggleMenu()">Gallery</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>Contact</p>
+  <h1>Get in <em>Touch</em></h1>
+  <p>We'd love to hear from you. Whether you're exploring care options, visiting a loved one, or interested in joining our team — we're here to help.</p>
+</div>
+
+<!-- CONTACT MAIN -->
+<section class="section" style="background:var(--warm-white)">
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="section-eyebrow">Reach Us</p>
+      <h2 class="section-title">We're Here<br><em>for You</em></h2>
+      <p class="section-lead">Our team is always happy to answer questions, schedule tours, and help guide you through care options for yourself or a loved one. Don't hesitate to call, email, or stop by.</p>
+      <div class="contact-info-items">
+        <div class="contact-info-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-body">
+            <h4>Address</h4>
+            <p>5016 Wellington County Rd. 29</p>
+            <p>Guelph, Ontario, N1H 6H8, Canada</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">📞</div>
+          <div class="ci-body">
+            <h4>Phone</h4>
+            <a href="tel:+15198564622">(519) 856-4622</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">📠</div>
+          <div class="ci-body">
+            <h4>Fax</h4>
+            <p>(519) 856-9171</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">✉️</div>
+          <div class="ci-body">
+            <h4>Email</h4>
+            <a href="mailto:admin@edenhousecarehome.ca">admin@edenhousecarehome.ca</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">🕐</div>
+          <div class="ci-body">
+            <h4>Office Hours</h4>
+            <p>Monday – Friday: 8:30 am – 4:30 pm</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-top:4px;">24-hour nursing care available for all residents</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">🌐</div>
+          <div class="ci-body">
+            <h4>Original Website</h4>
+            <a href="https://edenhousecarehome.ca" target="_blank" rel="noopener">edenhousecarehome.ca</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-card reveal" style="transition-delay:0.15s">
+      <h3>Send a Message</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" id="firstName">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Doe" id="lastName">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@example.com" id="email">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+1 (000) 000-0000" id="phone">
+      </div>
+      <div class="form-group">
+        <label>Inquiry Type</label>
+        <select id="inquiryType">
+          <option value="">Select…</option>
+          <option>Long-Term Care Placement</option>
+          <option>Retirement Home Inquiry</option>
+          <option>Book a Tour</option>
+          <option>Employment / Careers</option>
+          <option>Volunteer Opportunities</option>
+          <option>IPC / Health &amp; Safety</option>
+          <option>Family Member Update</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your situation and how we can help…" id="message"></textarea>
+      </div>
+      <button class="btn-submit" id="submitBtn" onclick="handleSubmit(event)">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="section" style="background:var(--stone)">
+  <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto 0">
+    <p class="section-eyebrow">Hours &amp; Availability</p>
+    <h2 class="section-title">Always <em>Here</em></h2>
+    <p class="section-lead" style="margin:0 auto;">While our office has set hours, care never stops at Eden House.</p>
+  </div>
+  <div class="hours-grid">
+    <div class="hours-card reveal" style="transition-delay:0.05s">
+      <div class="icon">🏢</div>
+      <h4>Office Hours</h4>
+      <p>Monday – Friday<br>8:30 am – 4:30 pm<br><br>Our administrative team is available during office hours for inquiries, admissions and general questions.</p>
+    </div>
+    <div class="hours-card reveal" style="transition-delay:0.1s">
+      <div class="icon">🩺</div>
+      <h4>Nursing Care</h4>
+      <p>24 Hours · 7 Days a Week<br><br>Qualified nursing staff are on duty around the clock for all residents in both our Long-Term Care Home and Retirement Home.</p>
+    </div>
+    <div class="hours-card reveal" style="transition-delay:0.15s">
+      <div class="icon">👨‍👩‍👧</div>
+      <h4>Family Visits</h4>
+      <p>Please refer to our current Visitor Policy for visiting hours and any active protocols before your visit.<br><br><a href="legislation.html#visitor" style="color:var(--sage);font-size:0.8rem;font-weight:500;">View Visitor Policy →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section map-section">
+  <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto 0">
+    <p class="section-eyebrow">Find Us</p>
+    <h2 class="section-title">Our <em>Location</em></h2>
+    <p class="section-lead" style="margin:0 auto;">Nestled in the countryside between Rockwood, Eden Mills and Guelph — a peaceful setting surrounded by lush grounds.</p>
+  </div>
+  <div class="map-wrapper reveal" style="transition-delay:0.1s">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.2347!2d-80.1234!3d43.6012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b8f5f5f5f5f5f%3A0x0!2s5016+Wellington+County+Rd+29%2C+Guelph%2C+ON+N1H+6H8!5e0!3m2!1sen!2sca!4v1700000000000"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Eden House Care Facility location map">
+    </iframe>
+  </div>
+  <div style="text-align:center;margin-top:28px;">
+    <a href="https://maps.google.com/?q=5016+Wellington+County+Rd+29,+Guelph,+ON+N1H+6H8" target="_blank" rel="noopener" class="btn-primary">Open in Google Maps</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
+    <p>A people-centred 58-bed nursing home and 20-bed retirement home nestled between Rockwood, Eden Mills and Guelph. Serving our community since 1968.</p>
+  </div>
+  <div>
+    <h4>Navigation</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="long-term-care.html">Long-Term Care</a></li>
+      <li><a href="retirement-home.html">Retirement Home</a></li>
+      <li><a href="infection-control.html">Infection &amp; Control</a></li>
+      <li><a href="legislation.html">Legislation / Reports</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Resources</h4>
+    <ul>
+      <li><a href="legislation.html#emergency">Emergency Plan</a></li>
+      <li><a href="legislation.html#visitor">Visitor Policy</a></li>
+      <li><a href="legislation.html#privacy">Privacy Policy</a></li>
+      <li><a href="legislation.html#fire">Fire Safety Plan</a></li>
+      <li><a href="legislation.html#aoda">AODA Plan</a></li>
+      <li><a href="https://rnao.ca/" target="_blank" rel="noopener">RNAO</a></li>
+      <li><a href="https://guelphwellingtonoht.com/" target="_blank" rel="noopener">GW OHT</a></li>
+    </ul>
+  </div>
+  <div class="footer-contact">
+    <h4>Contact</h4>
+    <p>📍 5016 Wellington County Rd. 29,<br>Guelph, ON N1H 6H8</p>
+    <p>📞 <a href="tel:+15198564622">(519) 856-4622</a></p>
+    <p>📠 Fax: (519) 856-9171</p>
+    <p>✉️ <a href="mailto:admin@edenhousecarehome.ca">admin@edenhousecarehome.ca</a></p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Eden House Care Facility Inc. · Est. 1968 · All rights reserved.</span>
+  <span><a href="legislation.html">Legislation &amp; Reports</a> · <a href="legislation.html#privacy">Privacy Policy</a></span>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
