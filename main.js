@@ -127,3 +127,47 @@ function openCalLightbox(src, alt) {
   document.getElementById('calLightboxImg').alt = alt || 'Activities calendar';
   box.classList.add('open');
 }
+
+// ── NEWSLETTER SPREAD ──
+// Shows newsletter pages two at a time (like an open magazine), with
+// prev/next navigation between spreads. Reused across pages.
+function initNewsletterSpread(opts) {
+  const { containerId, prevId, nextId, dotsId, downloadId, data } = opts;
+  const container = document.getElementById(containerId);
+  const pages = data.pages;
+  const spreads = [];
+  for (let i = 0; i < pages.length; i += 2) spreads.push(pages.slice(i, i + 2));
+
+  let current = 0;
+
+  function renderSpread() {
+    const spread = spreads[current];
+    container.innerHTML = spread.map((p, i) => {
+      const pageNum = current * 2 + i + 1;
+      return `
+        <div class="newsletter-page-frame" onclick="openCalLightbox('${p.src}', '${data.label} — page ${pageNum}')">
+          <img src="${p.src}" alt="${data.label} — page ${pageNum}" loading="lazy">
+        </div>
+      `;
+    }).join('');
+
+    const dotsEl = document.getElementById(dotsId);
+    if (dotsEl) {
+      dotsEl.innerHTML = spreads.map((_, i) =>
+        `<span class="slider-dot${i === current ? ' active' : ''}" onclick="window.__newsletterGoTo_${containerId}(${i})"></span>`
+      ).join('');
+    }
+  }
+
+  window['__newsletterGoTo_' + containerId] = (i) => { current = i; renderSpread(); };
+
+  const prevBtn = document.getElementById(prevId);
+  const nextBtn = document.getElementById(nextId);
+  if (prevBtn) prevBtn.addEventListener('click', () => { current = (current - 1 + spreads.length) % spreads.length; renderSpread(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { current = (current + 1) % spreads.length; renderSpread(); });
+
+  const dlEl = document.getElementById(downloadId);
+  if (dlEl) dlEl.innerHTML = `<a href="${data.pdf}" download class="btn-outline">⬇ Download Full Newsletter (PDF)</a>`;
+
+  renderSpread();
+}
