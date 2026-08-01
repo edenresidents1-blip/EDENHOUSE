@@ -14,10 +14,13 @@
 .hero-desc { font-size: 0.95rem; line-height: 1.78; color: var(--text-muted); max-width: 460px; margin-bottom: 40px; }
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
 .hero-right { display: grid; grid-template-rows: 1fr 1fr; }
-.hero-img-main { background: url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00249.jpg') center/cover no-repeat; }
+.hero-img-main { background: url('assets/site/hero-tulips-exterior.jpg') center/cover no-repeat; }
 .hero-img-row { display: grid; grid-template-columns: 1fr 1fr; }
-.hero-img-a { background: url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00276.jpeg') center/cover no-repeat; }
-.hero-img-b { background: var(--sage-pale); display: flex; align-items: center; justify-content: center; padding: 32px; text-align: center; }
+.hero-img-a { background: url('assets/site/exterior-parking-view.jpg') center/cover no-repeat; }
+.hero-img-b { background: url('assets/site/fountain-garden.jpg') center/cover no-repeat; display: flex; align-items: flex-end; justify-content: center; padding: 20px; text-align: center; position: relative; }
+.hero-img-b::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0) 60%); }
+.hero-badge { position: relative; z-index: 1; }
+.hero-badge-icon, .hero-badge-text, .hero-badge-sub { color: #fff; }
 .hero-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .hero-badge-icon { font-size: 2.2rem; }
 .hero-badge-text { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--forest); font-weight: 600; }
@@ -178,9 +181,9 @@
 <!-- ABOUT STRIP -->
 <section class="section about-strip">
   <div class="about-img-grid reveal">
-    <div class="about-img"><img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00249.jpg" alt="Eden House exterior" loading="lazy"></div>
-    <div class="about-img"><img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC02683.jpg" alt="Residents" loading="lazy"></div>
-    <div class="about-img"><img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00215-768x621.jpeg" alt="Common area" loading="lazy"></div>
+    <div class="about-img"><img src="assets/site/mission-slide.jpg" alt="Eden House Mission" loading="lazy"></div>
+    <div class="about-img"><img src="assets/site/values-slide.jpg" alt="Eden House Values" loading="lazy"></div>
+    <div class="about-img"><img src="assets/site/grounds-deer-picnic.jpg" alt="Eden House grounds" loading="lazy"></div>
   </div>
   <div class="reveal" style="transition-delay:0.15s">
     <p class="section-eyebrow">Who We Are</p>
@@ -309,20 +312,10 @@
     <button class="tab-btn" onclick="switchTab(event,'ret')">Retirement Home</button>
   </div>
   <div class="tab-panel active" id="tab-ltc">
-    <div class="slider-scene"><div class="slider-track" id="slider-ltc"></div></div>
-    <div class="slider-nav">
-      <button class="slider-btn" id="ltc-prev" aria-label="Previous">&#8592;</button>
-      <div class="slider-dots" id="dots-ltc"></div>
-      <button class="slider-btn" id="ltc-next" aria-label="Next">&#8594;</button>
-    </div>
+    <div class="cal-full reveal" id="calFullLtc"></div>
   </div>
   <div class="tab-panel" id="tab-ret">
-    <div class="slider-scene"><div class="slider-track" id="slider-ret"></div></div>
-    <div class="slider-nav">
-      <button class="slider-btn" id="ret-prev" aria-label="Previous">&#8592;</button>
-      <div class="slider-dots" id="dots-ret"></div>
-      <button class="slider-btn" id="ret-next" aria-label="Next">&#8594;</button>
-    </div>
+    <div class="cal-full reveal" id="calFullRet"></div>
   </div>
   <p class="reveal" style="text-align:center;margin-top:40px;font-size:0.82rem;color:var(--text-muted);font-style:italic;">📌 Updated monthly — check back for the latest programming and newsletter.</p>
 </section>
@@ -423,24 +416,25 @@ function switchTab(e, key) {
   document.getElementById('tab-' + key).classList.add('active');
   e.target.classList.add('active');
 }
-// Calendars/newsletters load from data/calendar-ltc.json and data/calendar-ret.json
-// so staff can update them through the CMS without editing code.
+// Calendars load from data/calendar-ltc.json and data/calendar-ret.json —
+// each holds one full, current-month image. Staff update these through the CMS.
+function renderCalendar(containerId, data) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = `
+    <div class="cal-full-frame" onclick="openCalLightbox('${data.image}', '${data.label}')">
+      <img src="${data.image}" alt="${data.label}" loading="lazy">
+    </div>
+    <div class="cal-full-actions">
+      <a href="${data.image}" download class="btn-outline">⬇ Download Calendar</a>
+    </div>
+  `;
+}
 Promise.all([
   fetch('data/calendar-ltc.json').then(r => r.json()),
   fetch('data/calendar-ret.json').then(r => r.json())
 ]).then(([ltcData, retData]) => {
-  const ltcSlides = ltcData.items;
-  const retSlides = retData.items;
-  const ltcCtrl = buildSlider('slider-ltc','dots-ltc', ltcSlides);
-  const retCtrl = buildSlider('slider-ret','dots-ret', retSlides);
-  document.getElementById('ltc-prev').addEventListener('click', () => ltcCtrl.prev());
-  document.getElementById('ltc-next').addEventListener('click', () => ltcCtrl.next());
-  document.getElementById('ret-prev').addEventListener('click', () => retCtrl.prev());
-  document.getElementById('ret-next').addEventListener('click', () => retCtrl.next());
-  setInterval(() => {
-    if (document.getElementById('tab-ltc').classList.contains('active')) ltcCtrl.next();
-    else retCtrl.next();
-  }, 4500);
+  renderCalendar('calFullLtc', ltcData);
+  renderCalendar('calFullRet', retData);
 }).catch(() => {
   console.error('Could not load calendar data.');
 });

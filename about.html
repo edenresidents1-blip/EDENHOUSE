@@ -317,22 +317,12 @@
     <button class="tab-btn" onclick="switchTab(event,'ret')">Retirement Home</button>
   </div>
   <div class="tab-panel active" id="tab-ltc">
-    <div class="slider-scene"><div class="slider-track" id="slider-ltc"></div></div>
-    <div class="slider-nav">
-      <button class="slider-btn" id="ltc-prev" aria-label="Previous">&#8592;</button>
-      <div class="slider-dots" id="dots-ltc"></div>
-      <button class="slider-btn" id="ltc-next" aria-label="Next">&#8594;</button>
-    </div>
+    <div class="cal-full reveal" id="calFullLtc"></div>
   </div>
   <div class="tab-panel" id="tab-ret">
-    <div class="slider-scene"><div class="slider-track" id="slider-ret"></div></div>
-    <div class="slider-nav">
-      <button class="slider-btn" id="ret-prev" aria-label="Previous">&#8592;</button>
-      <div class="slider-dots" id="dots-ret"></div>
-      <button class="slider-btn" id="ret-next" aria-label="Next">&#8594;</button>
-    </div>
+    <div class="cal-full reveal" id="calFullRet"></div>
   </div>
-  <p class="reveal" style="text-align:center;margin-top:36px;font-size:.82rem;color:var(--text-muted);font-style:italic;">📌 Updated every month. To add new calendars, edit the <code>ltcSlides</code> / <code>retSlides</code> arrays in the script below.</p>
+  <p class="reveal" style="text-align:center;margin-top:36px;font-size:.82rem;color:var(--text-muted);font-style:italic;">📌 Updated every month by our staff.</p>
 </section>
 
 <!-- GALLERY STRIP -->
@@ -411,24 +401,25 @@ function switchTab(e,key){
   document.getElementById('tab-'+key).classList.add('active');
   e.target.classList.add('active');
 }
-// Calendars/newsletters now load from data/calendar-ltc.json and data/calendar-ret.json
-// so staff can update them through the CMS without editing code.
+// Calendars load from data/calendar-ltc.json and data/calendar-ret.json —
+// each holds one full, current-month image. Staff update these through the CMS.
+function renderCalendar(containerId, data) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = `
+    <div class="cal-full-frame" onclick="openCalLightbox('${data.image}', '${data.label}')">
+      <img src="${data.image}" alt="${data.label}" loading="lazy">
+    </div>
+    <div class="cal-full-actions">
+      <a href="${data.image}" download class="btn-outline">⬇ Download Calendar</a>
+    </div>
+  `;
+}
 Promise.all([
   fetch('data/calendar-ltc.json').then(r=>r.json()),
   fetch('data/calendar-ret.json').then(r=>r.json())
 ]).then(([ltcData, retData]) => {
-  const ltcSlides = ltcData.items;
-  const retSlides = retData.items;
-  const ltcCtrl=buildSlider('slider-ltc','dots-ltc',ltcSlides);
-  const retCtrl=buildSlider('slider-ret','dots-ret',retSlides);
-  document.getElementById('ltc-prev').addEventListener('click',()=>ltcCtrl.prev());
-  document.getElementById('ltc-next').addEventListener('click',()=>ltcCtrl.next());
-  document.getElementById('ret-prev').addEventListener('click',()=>retCtrl.prev());
-  document.getElementById('ret-next').addEventListener('click',()=>retCtrl.next());
-  setInterval(()=>{
-    if(document.getElementById('tab-ltc').classList.contains('active'))ltcCtrl.next();
-    else retCtrl.next();
-  },4500);
+  renderCalendar('calFullLtc', ltcData);
+  renderCalendar('calFullRet', retData);
 }).catch(()=>{
   console.error('Could not load calendar data.');
 });

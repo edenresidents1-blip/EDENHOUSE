@@ -110,3 +110,20 @@ function handleSubmit(e) {
       errorMsg.style.display = 'block';
     });
 }
+
+// ── CALENDAR LIGHTBOX ──
+// Full-size zoomed view for the monthly calendar images (click to enlarge)
+function openCalLightbox(src, alt) {
+  let box = document.getElementById('calLightbox');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'calLightbox';
+    box.className = 'cal-lightbox';
+    box.innerHTML = '<span class="cal-lightbox-close">&times;</span><img id="calLightboxImg" src="" alt="">';
+    box.addEventListener('click', () => box.classList.remove('open'));
+    document.body.appendChild(box);
+  }
+  document.getElementById('calLightboxImg').src = src;
+  document.getElementById('calLightboxImg').alt = alt || 'Activities calendar';
+  box.classList.add('open');
+}

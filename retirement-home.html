@@ -214,15 +214,8 @@
     <h2 class="section-title">Activities Calendar<br><em>&amp; Newsletter</em></h2>
     <p class="section-lead" style="margin:0 auto;">Our full-time recreation team creates a rich monthly program for Retirement Home residents — daily activities, special events, and community outings.</p>
   </div>
-  <div class="slider-scene">
-    <div class="slider-track" id="slider-ret"></div>
-  </div>
-  <div class="slider-nav">
-    <button class="slider-btn" id="ret-prev" aria-label="Previous">&#8592;</button>
-    <div class="slider-dots" id="dots-ret"></div>
-    <button class="slider-btn" id="ret-next" aria-label="Next">&#8594;</button>
-  </div>
-  <p style="margin-top:36px;font-size:0.82rem;color:var(--text-muted);font-style:italic;" class="reveal">📌 Calendar and newsletter updated monthly. Check back each month for the latest programming.</p>
+  <div class="cal-full reveal" id="calFullRet"></div>
+  <p style="margin-top:36px;font-size:0.82rem;color:var(--text-muted);font-style:italic;" class="reveal">📌 Calendar and newsletter updated monthly by our staff.</p>
 </section>
 
 <!-- CTA BAND -->
@@ -279,18 +272,23 @@
 <script>
 // ── RETIREMENT CALENDAR SLIDES ──
 // ADD NEW MONTHS HERE (newest first). Format: { src: 'URL', label: 'Description' }
-const retSlides = [
-  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-10.22.04-AM-1024x660.png', label: 'Retirement Calendar – May 2026' },
-  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.41.50-AM-1-802x1024.png', label: 'Retirement Newsletter – May 2026' },
-  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.42.08-AM-1-789x1024.png', label: 'Retirement Calendar – May 2026 (pg. 2)' },
-  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.42.15-AM-1-794x1024.png', label: 'Retirement Newsletter – May 2026 (pg. 2)' },
-  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.41.57-AM-1-795x1024.png', label: 'Retirement Newsletter – May 2026 (pg. 3)' },
-  { src: 'https://edenhousecarehome.ca/wp-content/uploads/2026/04/Screenshot-2026-04-29-at-7.31.56-PM-1024x660.png', label: 'Retirement Calendar – April 2026' },
-];
-const retCtrl = buildSlider('slider-ret', 'dots-ret', retSlides);
-document.getElementById('ret-prev').addEventListener('click', () => retCtrl.prev());
-document.getElementById('ret-next').addEventListener('click', () => retCtrl.next());
-setInterval(() => retCtrl.next(), 4500);
+// Calendar loads from data/calendar-ret.json — one full, current-month image.
+// Staff update this through the CMS.
+function renderCalendar(containerId, data) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = `
+    <div class="cal-full-frame" onclick="openCalLightbox('${data.image}', '${data.label}')">
+      <img src="${data.image}" alt="${data.label}" loading="lazy">
+    </div>
+    <div class="cal-full-actions">
+      <a href="${data.image}" download class="btn-outline">⬇ Download Calendar</a>
+    </div>
+  `;
+}
+fetch('data/calendar-ret.json')
+  .then(r => r.json())
+  .then(data => renderCalendar('calFullRet', data))
+  .catch(() => console.error('Could not load calendar data.'));
 </script>
 </body>
 </html>

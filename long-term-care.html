@@ -305,15 +305,8 @@
     <h2 class="section-title">LTC Activities Calendar<br><em>&amp; Newsletter</em></h2>
     <p class="section-lead" style="margin:0 auto;">Our full-time recreation team creates a rich monthly program for Long-Term Care residents — daily activities, special events, community outings and more. Updated every month.</p>
   </div>
-  <div class="slider-scene">
-    <div class="slider-track" id="slider-ltc"></div>
-  </div>
-  <div class="slider-nav">
-    <button class="slider-btn" id="ltc-prev" aria-label="Previous">&#8592;</button>
-    <div class="slider-dots" id="dots-ltc"></div>
-    <button class="slider-btn" id="ltc-next" aria-label="Next">&#8594;</button>
-  </div>
-  <p class="reveal" style="text-align:center;margin-top:36px;font-size:.82rem;color:var(--text-muted);font-style:italic;">📌 Updated every month. To add new calendars, edit the <code>ltcSlides</code> array in the script below.</p>
+  <div class="cal-full reveal" id="calFullLtc"></div>
+  <p class="reveal" style="text-align:center;margin-top:36px;font-size:.82rem;color:var(--text-muted);font-style:italic;">📌 Updated every month by our staff.</p>
 </section>
 
 <!-- ADMISSIONS PROCESS -->
@@ -414,21 +407,23 @@
 <script src="main.js"></script>
 <script>
 // ADD NEW LTC MONTHS HERE (newest first)
-const ltcSlides=[
-  {src:'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.34.13-PM-1024x662.png',label:'LTC Calendar – June 2026'},
-  {src:'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.34.37-PM-790x1024.png',label:'LTC Newsletter – June 2026'},
-  {src:'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.34.46-PM-797x1024.png',label:'LTC Calendar – June 2026 (pg.2)'},
-  {src:'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.34.55-PM-797x1024.png',label:'LTC Newsletter – June 2026 (pg.2)'},
-  {src:'https://edenhousecarehome.ca/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.35.02-PM-796x1024.png',label:'LTC June 2026 – Activities'},
-  {src:'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.41.50-AM-802x1024.png',label:'LTC Calendar – May 2026'},
-  {src:'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.41.57-AM-795x1024.png',label:'LTC Newsletter – May 2026'},
-  {src:'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.42.08-AM-789x1024.png',label:'LTC Calendar – May 2026 (pg.2)'},
-  {src:'https://edenhousecarehome.ca/wp-content/uploads/2026/05/Screenshot-2026-05-22-at-8.42.15-AM-794x1024.png',label:'LTC Newsletter – May 2026 (pg.2)'},
-];
-const ltcCtrl=buildSlider('slider-ltc','dots-ltc',ltcSlides);
-document.getElementById('ltc-prev').addEventListener('click',()=>ltcCtrl.prev());
-document.getElementById('ltc-next').addEventListener('click',()=>ltcCtrl.next());
-setInterval(()=>ltcCtrl.next(),4500);
+// Calendar loads from data/calendar-ltc.json — one full, current-month image.
+// Staff update this through the CMS.
+function renderCalendar(containerId, data) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = `
+    <div class="cal-full-frame" onclick="openCalLightbox('${data.image}', '${data.label}')">
+      <img src="${data.image}" alt="${data.label}" loading="lazy">
+    </div>
+    <div class="cal-full-actions">
+      <a href="${data.image}" download class="btn-outline">⬇ Download Calendar</a>
+    </div>
+  `;
+}
+fetch('data/calendar-ltc.json')
+  .then(r => r.json())
+  .then(data => renderCalendar('calFullLtc', data))
+  .catch(() => console.error('Could not load calendar data.'));
 </script>
 </body>
 </html>
