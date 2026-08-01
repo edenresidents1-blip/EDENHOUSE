@@ -43,3 +43,19 @@ collections:
         fields:
           - { name: "image", label: "This Month's Calendar Image", widget: "image" }
           - { name: "label", label: "Label (e.g. 'August 2026 — Retirement Home Activities Calendar & Newsletter')", widget: "string" }
+
+  - name: "newsletter"
+    label: "Monthly Newsletter"
+    files:
+      - name: "newsletter"
+        label: "This Month's Newsletter"
+        file: "data/newsletter.json"
+        fields:
+          - { name: "label", label: "Label (e.g. 'August 2026 Newsletter')", widget: "string" }
+          - { name: "pdf", label: "Downloadable Newsletter (PDF)", widget: "file" }
+          - name: "pages"
+            label: "Newsletter Pages (in reading order)"
+            label_singular: "Page"
+            widget: "list"
+            fields:
+              - { name: "src", label: "Page Image", widget: "image" }

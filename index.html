@@ -320,6 +320,29 @@
   <p class="reveal" style="text-align:center;margin-top:40px;font-size:0.82rem;color:var(--text-muted);font-style:italic;">📌 Updated monthly — check back for the latest programming and newsletter.</p>
 </section>
 
+<!-- MONTHLY NEWSLETTER -->
+<section class="section" style="background:var(--warm-white)">
+  <div class="reveal" style="max-width:680px;margin:0 auto 48px;text-align:center">
+    <p class="section-eyebrow">Community News</p>
+    <h2 class="section-title">Monthly <em>Newsletter</em></h2>
+    <p class="section-lead" style="margin:0 auto;">Catch up on what's happening at Eden House this month — highlights, birthday celebrations and community news, plus both homes' activity calendars in one place.</p>
+  </div>
+  <div class="newsletter-pages reveal" id="newsletterPages"></div>
+  <div class="cal-full-actions" id="newsletterDownload"></div>
+
+  <h3 class="newsletter-section-divider">This Month's Calendars</h3>
+  <div class="newsletter-cal-grid">
+    <div class="newsletter-cal-card reveal">
+      <h4>Long-Term Care</h4>
+      <div id="newsletterCalLtc"></div>
+    </div>
+    <div class="newsletter-cal-card reveal" style="transition-delay:0.1s">
+      <h4>Retirement Home</h4>
+      <div id="newsletterCalRet"></div>
+    </div>
+  </div>
+</section>
+
 <!-- ACTIVITIES -->
 <section class="section" style="background:var(--warm-white)">
   <div class="reveal" style="text-align:center">
@@ -431,12 +454,27 @@ function renderCalendar(containerId, data) {
 }
 Promise.all([
   fetch('data/calendar-ltc.json').then(r => r.json()),
-  fetch('data/calendar-ret.json').then(r => r.json())
-]).then(([ltcData, retData]) => {
+  fetch('data/calendar-ret.json').then(r => r.json()),
+  fetch('data/newsletter.json').then(r => r.json())
+]).then(([ltcData, retData, newsData]) => {
   renderCalendar('calFullLtc', ltcData);
   renderCalendar('calFullRet', retData);
+
+  // Newsletter pages
+  const pagesEl = document.getElementById('newsletterPages');
+  pagesEl.innerHTML = newsData.pages.map((p, i) => `
+    <div class="newsletter-page-frame" onclick="openCalLightbox('${p.src}', '${newsData.label} — page ${i + 1}')">
+      <img src="${p.src}" alt="${newsData.label} — page ${i + 1}" loading="lazy">
+    </div>
+  `).join('');
+  document.getElementById('newsletterDownload').innerHTML =
+    `<a href="${newsData.pdf}" download class="btn-outline">⬇ Download Full Newsletter (PDF)</a>`;
+
+  // Duplicate calendar cards inside the newsletter section for convenience
+  renderCalendar('newsletterCalLtc', ltcData);
+  renderCalendar('newsletterCalRet', retData);
 }).catch(() => {
-  console.error('Could not load calendar data.');
+  console.error('Could not load calendar or newsletter data.');
 });
 </script>
 </body>
