@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legislation &amp; Reports — Eden House Care Facility</title>
+<meta name="description" content="Eden House Care Facility legislation, policies and reports — Emergency Plans, Visitor Policy, Privacy, Fire Safety, AODA, CQI, BPSO Statement and more.">
+<link rel="stylesheet" href="style.css">
+<style>
+.leg-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.leg-intro-img { border-radius: 20px; overflow: hidden; }
+.leg-intro-img img { width: 100%; height: 400px; object-fit: cover; }
+.policy-section { scroll-margin-top: 90px; }
+.policy-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.policy-icon-big { width: 56px; height: 56px; min-width: 56px; border-radius: 16px; background: var(--forest); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+.policy-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--forest); font-weight: 400; }
+.policy-body { background: #fff; border: 1px solid var(--sage-light); border-radius: 18px; padding: 36px; }
+.policy-body p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 16px; }
+.policy-body p:last-child { margin-bottom: 0; }
+.policy-link-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.policy-divider { height: 1px; background: var(--stone); margin: 52px 0; }
+.bpso-section { background: var(--forest); padding: 72px 80px; }
+.bpso-section .section-eyebrow { color: var(--gold-light); }
+.bpso-section .section-title { color: #fff; }
+.bpso-imgs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.bpso-img { border-radius: 12px; overflow: hidden; }
+.bpso-img img { width: 100%; height: 280px; object-fit: cover; }
+.all-docs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-top: 48px; }
+.all-doc-card { background: var(--sage-pale); border: 1px solid var(--sage-light); border-radius: 16px; padding: 28px; transition: box-shadow 0.3s, transform 0.25s; }
+.all-doc-card:hover { box-shadow: 0 8px 30px rgba(44,74,48,0.1); transform: translateY(-3px); }
+.all-doc-card .icon { font-size: 2rem; margin-bottom: 14px; }
+.all-doc-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--forest); margin-bottom: 8px; }
+.all-doc-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
+.all-doc-card a.doc-link { font-size: 0.76rem; color: var(--sage); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--sage-light); padding-bottom: 2px; transition: color 0.2s; }
+.all-doc-card a.doc-link:hover { color: var(--forest); }
+.fire-band { background: var(--stone); display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.fire-band .section-eyebrow { color: var(--sage); }
+.gwt-section { text-align: center; }
+@media (max-width: 960px) { .leg-intro { grid-template-columns: 1fr; } .bpso-imgs { grid-template-columns: 1fr 1fr; } .fire-band { grid-template-columns: 1fr; } .bpso-section { padding-left: 28px; padding-right: 28px; } }
+@media (max-width: 560px) { .bpso-imgs { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="long-term-care.html">Long-Term Care</a></li>
+    <li><a href="retirement-home.html">Retirement Home</a></li>
+    <li><a href="infection-control.html">Infection &amp; Control</a></li>
+    <li><a href="legislation.html" class="active">Legislation</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="btn-contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="long-term-care.html" onclick="toggleMenu()">Long-Term Care</a>
+  <a href="retirement-home.html" onclick="toggleMenu()">Retirement Home</a>
+  <a href="infection-control.html" onclick="toggleMenu()">Infection &amp; Control</a>
+  <a href="legislation.html" onclick="toggleMenu()">Legislation / Reports</a>
+  <a href="gallery.html" onclick="toggleMenu()">Gallery</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero stone-bg">
+  <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>Legislation &amp; Reports</p>
+  <h1>Legislation <em>&amp; Reports</em></h1>
+  <p>Eden House operates with full transparency and accountability. All key policies, reports, and plans are publicly available here.</p>
+</div>
+
+<!-- INTRO + QUICK LINKS -->
+<section class="section" style="background:var(--stone)">
+  <div class="leg-intro">
+    <div class="reveal">
+      <p class="section-eyebrow">Transparency &amp; Accountability</p>
+      <h2 class="section-title">Open, Honest,<br><em>Accountable Care</em></h2>
+      <p class="section-lead">Eden House is committed to transparency in all aspects of its operation. We are fully licensed and regulated by the Ministry of Long-Term Care and the Retirement Homes Regulatory Authority (RHRA), and we adhere to all applicable provincial legislation.</p>
+      <p class="section-lead" style="margin-top:14px;">All policies and reports listed on this page are publicly available documents. We believe families, residents, and community members deserve to know how we operate.</p>
+      <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px;">
+        <p style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);">Quick Links</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <a href="#emergency" class="pill" style="text-decoration:none;">🚨 Emergency Plan</a>
+          <a href="#visitor" class="pill" style="text-decoration:none;">👥 Visitor Policy</a>
+          <a href="#cqi" class="pill" style="text-decoration:none;">📊 CQI Report</a>
+          <a href="#privacy" class="pill" style="text-decoration:none;">🔐 Privacy Policy</a>
+          <a href="#fire" class="pill" style="text-decoration:none;">🔥 Fire Safety</a>
+          <a href="#aoda" class="pill" style="text-decoration:none;">♿ AODA Plan</a>
+          <a href="#bpso" class="pill" style="text-decoration:none;">🏅 BPSO Statement</a>
+        </div>
+      </div>
+    </div>
+    <div class="leg-intro-img reveal" style="transition-delay:0.15s">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00249.jpg" alt="Eden House building" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ALL DOCUMENTS — QUICK OVERVIEW -->
+<section class="section" style="background:var(--warm-white)">
+  <div class="reveal" style="text-align:center;max-width:620px;margin:0 auto 0">
+    <p class="section-eyebrow">All Documents</p>
+    <h2 class="section-title">Policies &amp; <em>Reports</em></h2>
+    <p class="section-lead" style="margin:0 auto;">Click any document below to view it directly. All documents open in a new tab.</p>
+  </div>
+  <div class="all-docs-grid">
+    <div class="all-doc-card reveal" style="transition-delay:0.05s">
+      <div class="icon">🚨</div>
+      <h3>Current Emergency Plans</h3>
+      <p>Emergency and contingency plans ensuring the safety and continuity of care for all residents in any emergency.</p>
+      <a class="doc-link" href="https://universalcare.policystat.com/policy/token_access/e5ef81e5-a844-4681-a35a-f77ba1b5a38a/" target="_blank" rel="noopener">View Emergency Plans →</a>
+    </div>
+    <div class="all-doc-card reveal" style="transition-delay:0.1s">
+      <div class="icon">👥</div>
+      <h3>Current Visitor Policy</h3>
+      <p>How families and guests can safely visit residents, including current entry requirements and protocols.</p>
+      <a class="doc-link" href="https://universalcare.policystat.com/policy/token_access/709f1446-8157-4c70-9bd3-978a4895dc90/" target="_blank" rel="noopener">View Visitor Policy →</a>
+    </div>
+    <div class="all-doc-card reveal" style="transition-delay:0.15s">
+      <div class="icon">📊</div>
+      <h3>CQI Report &amp; Action Plan</h3>
+      <p>Our Continuous Quality Improvement report and action plan documenting IPAC performance and priorities.</p>
+      <a class="doc-link" href="https://universalcare.policystat.com/policy/token_access/f0a24e55-6ce1-41d3-946e-0eefd7de29c4/" target="_blank" rel="noopener">View CQI Report →</a>
+    </div>
+    <div class="all-doc-card reveal" style="transition-delay:0.2s">
+      <div class="icon">🔐</div>
+      <h3>Privacy Policy</h3>
+      <p>How Eden House collects, uses and protects personal and health information per Ontario privacy legislation.</p>
+      <a class="doc-link" href="https://universalcare.policystat.com/policy/token_access/ac6adc63-691e-4830-a038-10ef07be706e/" target="_blank" rel="noopener">View Privacy Policy →</a>
+    </div>
+    <div class="all-doc-card reveal" style="transition-delay:0.25s">
+      <div class="icon">🤫</div>
+      <h3>Confidentiality Policy</h3>
+      <p>Governs the protection of all personal information about residents, families and staff at Eden House.</p>
+      <a class="doc-link" href="https://universalcare.policystat.com/policy/token_access/3bc4ad2b-97bb-42a3-a103-32c5251b25a6/" target="_blank" rel="noopener">View Policy →</a>
+    </div>
+    <div class="all-doc-card reveal" style="transition-delay:0.3s">
+      <div class="icon">♿</div>
+      <h3>AODA Multiyear Plan</h3>
+      <p>Our Accessibility for Ontarians with Disabilities Act multiyear accessibility plan and commitments.</p>
+      <a class="doc-link" href="https://universalcare.policystat.com/policy/token_access/00b0821c-bac0-451e-8056-738332420e18/" target="_blank" rel="noopener">View AODA Plan →</a>
+    </div>
+    <div class="all-doc-card reveal" style="transition-delay:0.35s">
+      <div class="icon">🔥</div>
+      <h3>Fire Safety Plan</h3>
+      <p>Eden House's comprehensive fire safety plan — updated September 2024 — for all residents, staff and visitors.</p>
+      <a class="doc-link" href="https://edenhousecarehome.ca/wp-content/uploads/2024/11/FIRE-PLAN-For-Eden-House-edited-Sept.-5-2024-1.pdf" target="_blank" rel="noopener">Download Fire Safety Plan →</a>
+    </div>
+    <div class="all-doc-card reveal" style="transition-delay:0.4s">
+      <div class="icon">🌐</div>
+      <h3>GW OHT Community Services</h3>
+      <p>The Guelph Wellington Ontario Health Team community services and resources webpage for local health navigation.</p>
+      <a class="doc-link" href="https://guelphwellingtonoht.com/community-services-and-resources/" target="_blank" rel="noopener">Visit GW OHT →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILED SECTIONS WITH ANCHORS -->
+<section class="section policy-section" id="emergency" style="background:var(--sage-pale)">
+  <div class="policy-header reveal">
+    <div class="policy-icon-big">🚨</div>
+    <h2>Emergency Plans</h2>
+  </div>
+  <div class="policy-body reveal" style="transition-delay:0.1s">
+    <p>Eden House maintains comprehensive emergency and contingency plans to ensure the safety and continuity of care for all residents in any emergency situation — including natural disasters, infrastructure failures, disease outbreaks, or other crises.</p>
+    <p>Our emergency plans are reviewed and updated regularly in consultation with management, staff, and regulatory authorities. They cover evacuation procedures, communication protocols, alternate care arrangements, and essential service continuity.</p>
+    <p>These plans comply fully with the requirements of the Long-Term Care Homes Act and the Retirement Homes Act.</p>
+    <div class="policy-link-row">
+      <a href="https://universalcare.policystat.com/policy/token_access/e5ef81e5-a844-4681-a35a-f77ba1b5a38a/" target="_blank" rel="noopener" class="btn-primary">View Emergency Plans</a>
+      <a href="contact.html" class="btn-outline">Questions? Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section policy-section" id="visitor" style="background:var(--warm-white)">
+  <div class="policy-header reveal">
+    <div class="policy-icon-big">👥</div>
+    <h2>Visitor Policy</h2>
+  </div>
+  <div class="policy-body reveal" style="transition-delay:0.1s">
+    <p>Eden House warmly welcomes visits from family members, friends and community members. Our visitor policy is designed to balance the important benefits of social connection for residents with the need to protect the health and safety of our entire community.</p>
+    <p>The current visitor policy outlines entry requirements, screening procedures, visiting hours and expectations for conduct during visits. Requirements may vary depending on current health directives from the Ministry of Long-Term Care or public health authorities.</p>
+    <p>We recommend reviewing the current policy and, when in doubt, calling ahead to confirm any active requirements before visiting.</p>
+    <div class="policy-link-row">
+      <a href="https://universalcare.policystat.com/policy/token_access/709f1446-8157-4c70-9bd3-978a4895dc90/" target="_blank" rel="noopener" class="btn-primary">View Visitor Policy</a>
+      <a href="tel:+15198564622" class="btn-outline">Call: (519) 856-4622</a>
+    </div>
+  </div>
+</section>
+
+<section class="section policy-section" id="cqi" style="background:var(--stone)">
+  <div class="policy-header reveal">
+    <div class="policy-icon-big">📊</div>
+    <h2>CQI Report &amp; Action Plan</h2>
+  </div>
+  <div class="policy-body reveal" style="transition-delay:0.1s">
+    <p>Our Continuous Quality Improvement (CQI) Report and Action Plan documents Eden House's performance across key care indicators, identifies areas for improvement, and outlines concrete actions to address them.</p>
+    <p>CQI is a fundamental part of how Eden House operates — not just a regulatory requirement, but a genuine commitment to ongoing improvement in resident care, staff practices, and facility operations.</p>
+    <p>The report is reviewed regularly by management and the Board, with progress tracked and reported transparently.</p>
+    <div class="policy-link-row">
+      <a href="https://universalcare.policystat.com/policy/token_access/f0a24e55-6ce1-41d3-946e-0eefd7de29c4/" target="_blank" rel="noopener" class="btn-primary">View CQI Report</a>
+    </div>
+  </div>
+</section>
+
+<section class="section policy-section" id="privacy" style="background:var(--warm-white)">
+  <div class="policy-header reveal">
+    <div class="policy-icon-big">🔐</div>
+    <h2>Privacy Policy</h2>
+  </div>
+  <div class="policy-body reveal" style="transition-delay:0.1s">
+    <p>Eden House collects, uses and discloses personal and personal health information in accordance with the Personal Health Information Protection Act (PHIPA) and all other applicable Ontario privacy legislation.</p>
+    <p>Our privacy policy explains what information we collect, why we collect it, how it is used, who may have access to it, and how it is protected. Residents and families have the right to access their own records and to request corrections.</p>
+    <p>If you have a privacy concern or complaint, please contact our Privacy Officer directly through the information on our Contact page.</p>
+    <div class="policy-link-row">
+      <a href="https://universalcare.policystat.com/policy/token_access/ac6adc63-691e-4830-a038-10ef07be706e/" target="_blank" rel="noopener" class="btn-primary">View Privacy Policy</a>
+      <a href="https://universalcare.policystat.com/policy/token_access/3bc4ad2b-97bb-42a3-a103-32c5251b25a6/" target="_blank" rel="noopener" class="btn-outline">View Confidentiality Policy</a>
+    </div>
+  </div>
+</section>
+
+<section class="section policy-section" id="aoda" style="background:var(--sage-pale)">
+  <div class="policy-header reveal">
+    <div class="policy-icon-big">♿</div>
+    <h2>AODA Multiyear Accessibility Plan</h2>
+  </div>
+  <div class="policy-body reveal" style="transition-delay:0.1s">
+    <p>Eden House is committed to accessibility for all persons, including those with disabilities. Our AODA Multiyear Plan outlines our commitments under the Accessibility for Ontarians with Disabilities Act, 2005, and the Integrated Accessibility Standards Regulation.</p>
+    <p>The plan addresses customer service, information and communications, employment, and the built environment — describing our current practices and our plan to continuously improve accessibility for residents, staff, families and visitors.</p>
+    <div class="policy-link-row">
+      <a href="https://universalcare.policystat.com/policy/token_access/00b0821c-bac0-451e-8056-738332420e18/" target="_blank" rel="noopener" class="btn-primary">View AODA Plan</a>
+    </div>
+  </div>
+</section>
+
+<section class="section policy-section" id="fire" style="background:var(--warm-white)">
+  <div class="fire-band">
+    <div class="reveal">
+      <div class="policy-header">
+        <div class="policy-icon-big">🔥</div>
+        <h2>Fire Safety Plan</h2>
+      </div>
+      <p class="section-lead">Eden House maintains a comprehensive Fire Safety Plan for the protection of all residents, staff and visitors. The plan was most recently updated September 2024 and covers fire prevention measures, detection systems, evacuation procedures, staff training requirements and more.</p>
+      <p class="section-lead" style="margin-top:14px;">Fire safety drills are conducted regularly to ensure all staff are fully prepared to respond to any fire emergency calmly and effectively.</p>
+      <div class="policy-link-row">
+        <a href="https://edenhousecarehome.ca/wp-content/uploads/2024/11/FIRE-PLAN-For-Eden-House-edited-Sept.-5-2024-1.pdf" target="_blank" rel="noopener" class="btn-primary">Download Fire Safety Plan (PDF)</a>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:0.15s">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00276.jpeg" alt="Eden House" loading="lazy" style="border-radius:16px;width:100%;height:340px;object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<!-- BPSO STATEMENT -->
+<section class="bpso-section policy-section" id="bpso">
+  <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 0">
+    <p class="section-eyebrow">Recognition</p>
+    <h2 class="section-title">BPSO <em>Statement</em></h2>
+    <p style="color:rgba(255,255,255,0.65);font-size:0.93rem;max-width:540px;margin:0 auto;line-height:1.75;">Eden House holds Best Practice Spotlight Organization (BPSO) designation from the Registered Nurses Association of Ontario — a mark of excellence in evidence-based nursing care.</p>
+  </div>
+  <div class="bpso-imgs">
+    <div class="bpso-img reveal" style="transition-delay:0.05s">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2024/07/Screenshot-2024-07-02-at-9.04.49-PM-747x1024.png" alt="BPSO Statement page 1" loading="lazy">
+    </div>
+    <div class="bpso-img reveal" style="transition-delay:0.12s">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2024/07/Screenshot-2024-07-02-at-9.04.57-PM-721x1024.png" alt="BPSO Statement page 2" loading="lazy">
+    </div>
+    <div class="bpso-img reveal" style="transition-delay:0.2s">
+      <img src="https://edenhousecarehome.ca/wp-content/uploads/2024/07/Screenshot-2024-07-02-at-9.05.03-PM-780x1024.png" alt="BPSO Statement page 3" loading="lazy">
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <a href="https://rnao.ca/" target="_blank" rel="noopener" class="btn-gold">Visit RNAO.ca</a>
+  </div>
+</section>
+
+<!-- GW OHT -->
+<section class="section gwt-section" style="background:var(--warm-white)">
+  <div class="reveal" style="max-width:640px;margin:0 auto">
+    <p class="section-eyebrow">Community Resources</p>
+    <h2 class="section-title">Guelph Wellington OHT<br><em>Community Services</em></h2>
+    <p class="section-lead" style="margin:0 auto 28px;">The Guelph Wellington Ontario Health Team has launched a Community Services and Resources webpage to help connect residents and families with local health and social services across our region.</p>
+    <a href="https://guelphwellingtonoht.com/community-services-and-resources/" target="_blank" rel="noopener" class="btn-primary">Visit GW OHT Resources</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
+    <p>A people-centred 58-bed nursing home and 20-bed retirement home nestled between Rockwood, Eden Mills and Guelph. Serving our community since 1968.</p>
+  </div>
+  <div>
+    <h4>Navigation</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="long-term-care.html">Long-Term Care</a></li>
+      <li><a href="retirement-home.html">Retirement Home</a></li>
+      <li><a href="infection-control.html">Infection &amp; Control</a></li>
+      <li><a href="legislation.html">Legislation / Reports</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Resources</h4>
+    <ul>
+      <li><a href="#emergency">Emergency Plan</a></li>
+      <li><a href="#visitor">Visitor Policy</a></li>
+      <li><a href="#privacy">Privacy Policy</a></li>
+      <li><a href="#fire">Fire Safety Plan</a></li>
+      <li><a href="#aoda">AODA Plan</a></li>
+      <li><a href="https://rnao.ca/" target="_blank" rel="noopener">RNAO</a></li>
+      <li><a href="https://guelphwellingtonoht.com/" target="_blank" rel="noopener">GW OHT</a></li>
+    </ul>
+  </div>
+  <div class="footer-contact">
+    <h4>Contact</h4>
+    <p>📍 5016 Wellington County Rd. 29,<br>Guelph, ON N1H 6H8</p>
+    <p>📞 <a href="tel:+15198564622">(519) 856-4622</a></p>
+    <p>📠 Fax: (519) 856-9171</p>
+    <p>✉️ <a href="mailto:admin@edenhousecarehome.ca">admin@edenhousecarehome.ca</a></p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Eden House Care Facility Inc. · Est. 1968 · All rights reserved.</span>
+  <span><a href="#privacy">Privacy Policy</a> · <a href="#aoda">Accessibility</a></span>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
