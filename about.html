@@ -305,7 +305,7 @@
   </div>
 </section>
 
-<!-- CALENDAR -->
+<!-- CALENDAR & NEWSLETTER -->
 <section class="section cal-bg" id="calendar">
   <div class="reveal" style="max-width:680px;margin:0 auto 56px;text-align:center">
     <p class="section-eyebrow">Monthly Programming</p>
@@ -315,6 +315,7 @@
   <div class="cal-tabs reveal" style="transition-delay:.1s">
     <button class="tab-btn active" onclick="switchTab(event,'ltc')">Long-Term Care</button>
     <button class="tab-btn" onclick="switchTab(event,'ret')">Retirement Home</button>
+    <button class="tab-btn" onclick="switchTab(event,'news')">Newsletter</button>
   </div>
   <div class="tab-panel active" id="tab-ltc">
     <div class="cal-full reveal" id="calFullLtc"></div>
@@ -322,30 +323,16 @@
   <div class="tab-panel" id="tab-ret">
     <div class="cal-full reveal" id="calFullRet"></div>
   </div>
+  <div class="tab-panel" id="tab-news">
+    <div class="newsletter-spread reveal" id="newsletterSpread"></div>
+    <div class="slider-nav" style="margin-top:28px;">
+      <button class="slider-btn" id="news-prev" aria-label="Previous">&#8592;</button>
+      <div class="slider-dots" id="news-dots"></div>
+      <button class="slider-btn" id="news-next" aria-label="Next">&#8594;</button>
+    </div>
+    <div class="cal-full-actions" id="newsletterDownload" style="margin-top:24px;"></div>
+  </div>
   <p class="reveal" style="text-align:center;margin-top:36px;font-size:.82rem;color:var(--text-muted);font-style:italic;">📌 Updated every month by our staff.</p>
-</section>
-
-<!-- MONTHLY NEWSLETTER -->
-<section class="section" style="background:var(--warm-white)">
-  <div class="reveal" style="max-width:680px;margin:0 auto 48px;text-align:center">
-    <p class="section-eyebrow">Community News</p>
-    <h2 class="section-title">Monthly <em>Newsletter</em></h2>
-    <p class="section-lead" style="margin:0 auto;">Catch up on what's happening at Eden House this month — highlights, birthday celebrations and community news, plus both homes' activity calendars in one place.</p>
-  </div>
-  <div class="newsletter-pages reveal" id="newsletterPages"></div>
-  <div class="cal-full-actions" id="newsletterDownload"></div>
-
-  <h3 class="newsletter-section-divider">This Month's Calendars</h3>
-  <div class="newsletter-cal-grid">
-    <div class="newsletter-cal-card reveal">
-      <h4>Long-Term Care</h4>
-      <div id="newsletterCalLtc"></div>
-    </div>
-    <div class="newsletter-cal-card reveal" style="transition-delay:0.1s">
-      <h4>Retirement Home</h4>
-      <div id="newsletterCalRet"></div>
-    </div>
-  </div>
 </section>
 
 <!-- GALLERY STRIP -->
@@ -444,18 +431,14 @@ Promise.all([
 ]).then(([ltcData, retData, newsData]) => {
   renderCalendar('calFullLtc', ltcData);
   renderCalendar('calFullRet', retData);
-
-  const pagesEl = document.getElementById('newsletterPages');
-  pagesEl.innerHTML = newsData.pages.map((p, i) => `
-    <div class="newsletter-page-frame" onclick="openCalLightbox('${p.src}', '${newsData.label} — page ${i + 1}')">
-      <img src="${p.src}" alt="${newsData.label} — page ${i + 1}" loading="lazy">
-    </div>
-  `).join('');
-  document.getElementById('newsletterDownload').innerHTML =
-    `<a href="${newsData.pdf}" download class="btn-outline">⬇ Download Full Newsletter (PDF)</a>`;
-
-  renderCalendar('newsletterCalLtc', ltcData);
-  renderCalendar('newsletterCalRet', retData);
+  initNewsletterSpread({
+    containerId: 'newsletterSpread',
+    prevId: 'news-prev',
+    nextId: 'news-next',
+    dotsId: 'news-dots',
+    downloadId: 'newsletterDownload',
+    data: newsData
+  });
 }).catch(()=>{
   console.error('Could not load calendar or newsletter data.');
 });

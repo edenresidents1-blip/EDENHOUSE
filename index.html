@@ -459,20 +459,14 @@ Promise.all([
 ]).then(([ltcData, retData, newsData]) => {
   renderCalendar('calFullLtc', ltcData);
   renderCalendar('calFullRet', retData);
-
-  // Newsletter pages
-  const pagesEl = document.getElementById('newsletterPages');
-  pagesEl.innerHTML = newsData.pages.map((p, i) => `
-    <div class="newsletter-page-frame" onclick="openCalLightbox('${p.src}', '${newsData.label} — page ${i + 1}')">
-      <img src="${p.src}" alt="${newsData.label} — page ${i + 1}" loading="lazy">
-    </div>
-  `).join('');
-  document.getElementById('newsletterDownload').innerHTML =
-    `<a href="${newsData.pdf}" download class="btn-outline">⬇ Download Full Newsletter (PDF)</a>`;
-
-  // Duplicate calendar cards inside the newsletter section for convenience
-  renderCalendar('newsletterCalLtc', ltcData);
-  renderCalendar('newsletterCalRet', retData);
+  initNewsletterSpread({
+    containerId: 'newsletterSpread',
+    prevId: 'news-prev',
+    nextId: 'news-next',
+    dotsId: 'news-dots',
+    downloadId: 'newsletterDownload',
+    data: newsData
+  });
 }).catch(() => {
   console.error('Could not load calendar or newsletter data.');
 });
