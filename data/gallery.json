@@ -2,23 +2,23 @@
   "items": [
     {
       "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC02683.jpg",
-      "caption": "Resident Activities"
+      "caption": "FRONT ENTRANCE "
     },
     {
       "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00215-768x621.jpeg",
-      "caption": "Creative Arts & Crafts"
+      "caption": "MEMORY GARDEN"
     },
     {
       "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00276.jpeg",
-      "caption": "Lush Grounds"
+      "caption": "EDEN HOUSE"
     },
     {
       "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSCN3108-300x225.jpg",
-      "caption": "Retirement Suite"
+      "caption": "ACTIVITY ROOM"
     },
     {
       "src": "https://edenhousecarehome.ca/wp-content/uploads/2025/03/Screenshot-2025-03-31-at-2.06.15-PM-300x225.png",
-      "caption": "Common Area"
+      "caption": "DINING ROOM"
     },
     {
       "src": "https://edenhousecarehome.ca/wp-content/uploads/2025/03/Screenshot-2025-03-31-at-2.06.26-PM-300x222.png",
@@ -30,11 +30,11 @@
     },
     {
       "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/20210503_140145-2-300x214.jpg",
-      "caption": "Outdoor Area"
+      "caption": "MEAL"
     },
     {
       "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/20210510_121259-1-300x169.jpg",
-      "caption": "Garden Walk"
+      "caption": "MEAL"
     },
     {
       "src": "assets/site/resident-craft-sanding.jpg",
@@ -59,6 +59,10 @@
     {
       "src": "assets/site/walkway-bench.jpg",
       "caption": "Tree-Lined Walkway"
+    },
+    {
+      "src": "/assets/uploads/img_8734.jpeg",
+      "caption": "Retirement Hallway "
     }
   ]
 }
