@@ -8,26 +8,26 @@
 <link rel="stylesheet" href="style.css">
 <style>
 /* ── HERO ── */
-.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px; }
-.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px 80px 80px; }
-.hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: var(--gold); margin-bottom: 24px; }
-.hero-desc { font-size: 0.95rem; line-height: 1.78; color: var(--text-muted); max-width: 460px; margin-bottom: 40px; }
-.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
-.hero-right { display: grid; grid-template-rows: 1fr 1fr; }
-.hero-img-main { background: url('assets/site/hero-tulips-exterior.jpg') center/cover no-repeat; }
-.hero-img-row { display: grid; grid-template-columns: 1fr 1fr; }
-.hero-img-a { background: url('assets/site/exterior-parking-view.jpg') center/cover no-repeat; }
-.hero-img-b { background: url('assets/site/fountain-garden.jpg') center/cover no-repeat; display: flex; align-items: flex-end; justify-content: center; padding: 20px; text-align: center; position: relative; }
-.hero-img-b::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0) 60%); }
-.hero-badge { position: relative; z-index: 1; }
-.hero-badge-icon, .hero-badge-text, .hero-badge-sub { color: #fff; }
-.hero-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.hero-badge-icon { font-size: 2.2rem; }
-.hero-badge-text { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--forest); font-weight: 600; }
-.hero-badge-sub { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.06em; }
+.hero-full { position: relative; min-height: 82vh; margin-top: 72px; display: flex; align-items: center; background: url('assets/site/grounds-picnic.jpg') center 55%/cover no-repeat; overflow: hidden; }
+.hero-full::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(38,52,74,0.85) 0%, rgba(38,52,74,0.6) 40%, rgba(38,52,74,0.18) 78%); }
+.hero-full-content { position: relative; z-index: 1; max-width: 640px; padding: 60px 64px; color: #fff; }
+.hero-full-eyebrow { color: rgba(255,255,255,0.85); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; margin-bottom: 18px; }
+.hero-full-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.6rem,4.6vw,4.6rem); line-height: 1.08; margin-bottom: 20px; }
+.hero-full-sub { font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,0.92); margin-bottom: 36px; max-width: 480px; }
+.hero-full-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+.hero-full-stats { font-size: 0.85rem; letter-spacing: 0.03em; color: rgba(255,255,255,0.85); font-weight: 500; }
+.stats-band { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 48px; padding: 40px 64px; background: var(--warm-white); border-bottom: 1px solid var(--stone); }
+.stats-row { display: flex; flex-wrap: wrap; gap: 40px; }
+.stat-item { display: flex; flex-direction: column; }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 600; color: var(--forest); line-height: 1; }
+.stat-label { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px; }
 .reviews-bar { display: flex; align-items: center; gap: 12px; background: var(--sage-pale); border: 1px solid var(--sage-light); border-radius: 40px; padding: 10px 20px; max-width: fit-content; }
 .reviews-bar .stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; }
 .reviews-bar p { font-size: 0.75rem; color: var(--text-muted); }
+.stats-badge { display: flex; align-items: center; gap: 10px; }
+.stats-badge-icon { font-size: 1.7rem; }
+.stats-badge-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--forest); font-weight: 600; line-height: 1.2; }
+.stats-badge-sub { font-size: 0.66rem; color: var(--text-muted); letter-spacing: 0.04em; }
 
 /* ── ABOUT STRIP ── */
 .about-strip { background: var(--warm-white); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -77,9 +77,39 @@
 .act-card { border-radius: 16px; overflow: hidden; height: 300px; position: relative; }
 .act-bg { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.5s; }
 .act-card:hover .act-bg { transform: scale(1.05); }
-.act-overlay { position: absolute; inset: 0; background: linear-gradient(180deg,transparent 35%,rgba(29,44,30,.82) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 26px; color: #fff; }
+.act-overlay { position: absolute; inset: 0; background: linear-gradient(180deg,transparent 35%,rgba(38,52,74,.82) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 26px; color: #fff; }
 .act-tag { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; background: var(--gold); color: var(--forest); padding: 3px 10px; border-radius: 4px; font-weight: 700; width: fit-content; margin-bottom: 8px; }
 .act-name { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; line-height: 1.2; }
+
+/* ── CHOICE CARDS (LTC / Retirement Living) ── */
+.choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
+.choice-card { position: relative; border-radius: 20px; overflow: hidden; min-height: 460px; display: flex; align-items: flex-end; text-decoration: none; }
+.choice-card-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.5s; }
+.choice-card:hover .choice-card-bg { transform: scale(1.06); }
+.choice-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(38,52,74,0.15) 0%, rgba(38,52,74,0.92) 100%); z-index: 1; }
+.choice-card-content { position: relative; z-index: 2; padding: 40px; color: #fff; }
+.choice-card-icon { font-size: 2.2rem; margin-bottom: 10px; }
+.choice-card-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 500; margin-bottom: 12px; }
+.choice-card-desc { font-size: 0.95rem; color: rgba(255,255,255,0.88); line-height: 1.6; margin-bottom: 18px; max-width: 420px; }
+.choice-card-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.choice-card-topics span { font-size: 0.68rem; letter-spacing: 0.03em; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28); padding: 5px 12px; border-radius: 30px; color: #fff; }
+.choice-card-cta { font-size: 0.82rem; font-weight: 600; color: #fff; display: inline-flex; align-items: center; gap: 8px; }
+
+/* ── WHY EDEN HOUSE ── */
+.why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 28px; margin-top: 48px; }
+.why-card { text-align: center; padding: 8px 12px; }
+.why-icon { font-size: 2.3rem; margin-bottom: 16px; }
+.why-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--forest); font-weight: 600; margin-bottom: 10px; }
+.why-desc { font-size: 0.86rem; color: var(--text-muted); line-height: 1.65; }
+
+/* ── FINAL CTA ── */
+.final-cta { position: relative; min-height: 420px; display: flex; align-items: center; justify-content: center; text-align: center; background: url('assets/site/walkway-bench-single.jpg') center 30%/cover no-repeat; }
+.final-cta::before { content: ''; position: absolute; inset: 0; background: rgba(38,52,74,0.78); }
+.final-cta-content { position: relative; z-index: 1; max-width: 560px; padding: 24px; color: #fff; }
+.final-cta-content .section-title { color: #fff; }
+.final-cta-content p { font-size: 1.02rem; color: rgba(255,255,255,0.88); line-height: 1.7; margin: 18px 0 32px; }
+.final-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; align-items: center; }
+.final-cta-phone { color: #fff; font-size: 1.1rem; font-weight: 600; text-decoration: none; letter-spacing: 0.02em; }
 
 /* ── RNAO ── */
 .rnao-strip { background: var(--stone); display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
@@ -95,10 +125,10 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 60px 40px; }
-  .hero-right { height: 400px; }
-  .hero-img-row { display: none; }
+  .hero-full { min-height: 68vh; }
+  .hero-full-content { padding: 40px 32px; }
+  .choice-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
   .about-strip { grid-template-columns: 1fr; }
   .mv-grid { grid-template-columns: 1fr; }
   .svc-grid { grid-template-columns: 1fr; }
@@ -106,11 +136,13 @@
 @media (max-width: 768px) {
   .act-grid { grid-template-columns: 1fr 1fr; }
   .values-chips { grid-template-columns: 1fr; }
+  .stats-band { gap: 28px; padding: 32px 24px; }
 }
 @media (max-width: 560px) {
-  .hero-left { padding: 48px 18px; }
+  .hero-full-content { padding: 32px 20px; }
   .act-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 24px; }
+  .stats-row { gap: 24px; }
+  .why-grid { grid-template-columns: 1fr; }
 }
 </style>
   <!-- Netlify Identity widget: required here so invite/password-reset links
@@ -135,11 +167,11 @@
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="long-term-care.html">Long-Term Care</a></li>
-    <li><a href="retirement-home.html">Retirement Home</a></li>
+    <li><a href="retirement-home.html">Retirement Living</a></li>
     <li><a href="infection-control.html">Infection &amp; Control</a></li>
     <li><a href="legislation.html">Legislation</a></li>
     <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html" class="btn-contact">Contact</a></li>
+    <li><a href="contact.html" class="btn-contact">Book a Tour</a></li>
   </ul>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
@@ -147,7 +179,7 @@
   <a href="index.html" onclick="toggleMenu()">Home</a>
   <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="long-term-care.html" onclick="toggleMenu()">Long-Term Care</a>
-  <a href="retirement-home.html" onclick="toggleMenu()">Retirement Home</a>
+  <a href="retirement-home.html" onclick="toggleMenu()">Retirement Living</a>
   <a href="infection-control.html" onclick="toggleMenu()">Infection &amp; Control</a>
   <a href="legislation.html" onclick="toggleMenu()">Legislation / Reports</a>
   <a href="gallery.html" onclick="toggleMenu()">Gallery</a>
@@ -155,38 +187,124 @@
 </div>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-left">
-    <p class="section-eyebrow">Nestled between Rockwood, Eden Mills &amp; Guelph</p>
-    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5.5rem);font-weight:300;line-height:1.05;color:var(--forest);margin-bottom:10px;">Eden House<br><em style="font-style:italic;color:var(--sage);">Care Facility</em></h1>
-    <p class="hero-tagline">"A Nice Place to Live"</p>
-    <p class="hero-desc">A community-oriented 58-bed nursing home and 20-bed retirement home. A pillar in the community for over 55 years, excelling in resident-centred care. Licensed by the Ministry of Long-Term Care and Retirement Homes Regulatory Authority.</p>
-    <div class="hero-btns">
-      <a href="contact.html" class="btn-primary">Book a Tour</a>
-      <a href="about.html" class="btn-outline">Our Story</a>
+<section class="hero-full" id="home">
+  <div class="hero-full-content">
+    <p class="hero-full-eyebrow">Nestled between Rockwood, Eden Mills &amp; Guelph</p>
+    <h1 class="hero-full-title">A Nice Place<br>to Live.</h1>
+    <p class="hero-full-sub">Compassionate care. Meaningful connections. A community to call home.</p>
+    <div class="hero-full-btns">
+      <a href="long-term-care.html" class="btn-primary">Explore Long-Term Care</a>
+      <a href="retirement-home.html" class="btn-white">Explore Retirement Living</a>
     </div>
-    <div class="stats-row">
-      <div class="stat-item"><span class="stat-num">55+</span><span class="stat-label">Years of Service</span></div>
-      <div class="stat-item"><span class="stat-num">58</span><span class="stat-label">LTC Beds</span></div>
-      <div class="stat-item"><span class="stat-num">20</span><span class="stat-label">Retirement Suites</span></div>
-      <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Nursing Care</span></div>
-    </div>
-    <div class="reviews-bar">
-      <span class="stars">★★★★★</span>
-      <p>"Scenic and homely location" · "Professional, caring staff" · Google Reviews</p>
+    <p class="hero-full-stats">58 LTC Beds &nbsp;·&nbsp; 20 Retirement Home Suites &nbsp;·&nbsp; Community Since 1968</p>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats-band">
+  <div class="stats-row">
+    <div class="stat-item"><span class="stat-num">55+</span><span class="stat-label">Years of Service</span></div>
+    <div class="stat-item"><span class="stat-num">58</span><span class="stat-label">LTC Beds</span></div>
+    <div class="stat-item"><span class="stat-num">20</span><span class="stat-label">Retirement Suites</span></div>
+    <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Nursing Care</span></div>
+  </div>
+  <div class="reviews-bar">
+    <span class="stars">★★★★★</span>
+    <p>"Scenic and homely location" · "Professional, caring staff" · Google Reviews</p>
+  </div>
+  <div class="stats-badge">
+    <div class="stats-badge-icon">🏅</div>
+    <div>
+      <div class="stats-badge-text">RNAO Partner</div>
+      <div class="stats-badge-sub">Best Practice Organization</div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-img-main"></div>
-    <div class="hero-img-row">
-      <div class="hero-img-a"></div>
-      <div class="hero-img-b">
-        <div class="hero-badge">
-          <div class="hero-badge-icon">🏅</div>
-          <div class="hero-badge-text">RNAO Partner</div>
-          <div class="hero-badge-sub">Best Practice Organization</div>
+</section>
+
+<!-- CHOICE CARDS: LTC / RETIREMENT LIVING -->
+<section class="section" style="background:var(--warm-white)">
+  <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 0">
+    <p class="section-eyebrow">Two Ways to Call Eden House Home</p>
+    <h2 class="section-title">Find the Right <em>Fit</em></h2>
+    <p class="section-lead" style="margin:0 auto;">Whether your loved one needs dedicated nursing care or a supportive, independent lifestyle, Eden House has a place for them.</p>
+  </div>
+  <div class="choice-grid">
+    <a class="choice-card reveal" href="long-term-care.html" style="transition-delay:0.05s">
+      <div class="choice-card-bg" style="background-image:url('assets/site/dining-room.jpg')"></div>
+      <div class="choice-card-content">
+        <div class="choice-card-icon">🌿</div>
+        <div class="choice-card-title">Long-Term Care</div>
+        <p class="choice-card-desc">Personalized nursing care in a warm, home-like environment — 24 hours a day, every day.</p>
+        <div class="choice-card-topics">
+          <span>Care &amp; Services</span><span>Accommodations</span><span>Daily Life</span><span>Recreation</span><span>Admissions</span>
         </div>
+        <span class="choice-card-cta">Explore Long-Term Care →</span>
       </div>
+    </a>
+    <a class="choice-card reveal" href="retirement-home.html" style="transition-delay:0.15s">
+      <div class="choice-card-bg" style="background-image:url('assets/site/living-room-lounge.jpg')"></div>
+      <div class="choice-card-content">
+        <div class="choice-card-icon">🏡</div>
+        <div class="choice-card-title">Retirement Living</div>
+        <p class="choice-card-desc">A comfortable community where you can continue living life your way, with support close at hand.</p>
+        <div class="choice-card-topics">
+          <span>Suites</span><span>Dining</span><span>Activities</span><span>Community Life</span><span>Costs &amp; Availability</span>
+        </div>
+        <span class="choice-card-cta">Explore Retirement Living →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- LIFE AT EDEN HOUSE -->
+<section class="section" style="background:var(--sage-pale)">
+  <div class="reveal" style="text-align:center">
+    <p class="section-eyebrow">Life at Eden House</p>
+    <h2 class="section-title">Every Resident Has <em>a Story</em></h2>
+    <p class="section-lead" style="max-width:560px;margin:0 auto;">Don't just picture the building — picture the days. Connection, laughter, participation and feeling at home, every single day.</p>
+  </div>
+  <div class="act-grid">
+    <div class="act-card reveal" style="transition-delay:0.05s">
+      <div class="act-bg" style="background-image:url('assets/site/resident-craft-sanding.jpg')"></div>
+      <div class="act-overlay"><span class="act-tag">Recreation</span><span class="act-name">Life &amp; Recreation</span></div>
+    </div>
+    <div class="act-card reveal" style="transition-delay:0.1s">
+      <div class="act-bg" style="background-image:url('assets/site/dining-room.jpg')"></div>
+      <div class="act-overlay"><span class="act-tag">Dining</span><span class="act-name">Dining Together</span></div>
+    </div>
+    <div class="act-card reveal" style="transition-delay:0.15s">
+      <div class="act-bg" style="background-image:url('assets/site/grounds-deer.jpg')"></div>
+      <div class="act-overlay"><span class="act-tag">Community</span><span class="act-name">Our Community</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY EDEN HOUSE -->
+<section class="section" style="background:var(--warm-white)">
+  <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 0">
+    <p class="section-eyebrow">More Than Care</p>
+    <h2 class="section-title">A <em>Community</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal" style="transition-delay:0.05s">
+      <div class="why-icon">❤️</div>
+      <div class="why-title">Person-Centred Care</div>
+      <div class="why-desc">Individualized care that respects each resident's needs, preferences and independence.</div>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.1s">
+      <div class="why-icon">🌳</div>
+      <div class="why-title">A Peaceful Setting</div>
+      <div class="why-desc">A welcoming rural environment surrounded by nature, gardens and open sky.</div>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.15s">
+      <div class="why-icon">🤝</div>
+      <div class="why-title">A Connected Community</div>
+      <div class="why-desc">Residents, families, staff and volunteers coming together every day.</div>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.2s">
+      <div class="why-icon">🎵</div>
+      <div class="why-title">A Life Full of Moments</div>
+      <div class="why-desc">Recreation, social programs, celebrations and opportunities to participate.</div>
     </div>
   </div>
 </section>
@@ -196,7 +314,7 @@
   <div class="about-img-grid reveal">
     <div class="about-img"><img src="assets/site/mission-slide.jpg" alt="Eden House Mission" loading="lazy"></div>
     <div class="about-img"><img src="assets/site/values-slide.jpg" alt="Eden House Values" loading="lazy"></div>
-    <div class="about-img"><img src="assets/site/grounds-deer-picnic.jpg" alt="Eden House grounds" loading="lazy"></div>
+    <div class="about-img"><img src="assets/site/grounds-deer.jpg" alt="Eden House grounds" loading="lazy"></div>
   </div>
   <div class="reveal" style="transition-delay:0.15s">
     <p class="section-eyebrow">Who We Are</p>
@@ -346,21 +464,21 @@
 <!-- ACTIVITIES -->
 <section class="section" style="background:var(--warm-white)">
   <div class="reveal" style="text-align:center">
-    <p class="section-eyebrow">Life at Eden House</p>
+    <p class="section-eyebrow">Daily Programming</p>
     <h2 class="section-title">Vibrant Daily <em>Activities</em></h2>
     <p class="section-lead" style="max-width:540px;margin:0 auto;">Our dedicated recreation team creates meaningful daily programming designed to nurture body, mind and spirit for every resident.</p>
   </div>
   <div class="act-grid">
     <div class="act-card reveal" style="transition-delay:0.05s">
-      <div class="act-bg" style="background-image:url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC02683.jpg')"></div>
+      <div class="act-bg" style="background-image:url('assets/site/fountain-garden.jpg')"></div>
       <div class="act-overlay"><span class="act-tag">Outdoor</span><span class="act-name">Gardening &amp; Nature</span></div>
     </div>
     <div class="act-card reveal" style="transition-delay:0.1s">
-      <div class="act-bg" style="background-image:url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00215-768x621.jpeg')"></div>
+      <div class="act-bg" style="background-image:url('assets/site/resident-craft-sanding.jpg')"></div>
       <div class="act-overlay"><span class="act-tag">Crafts</span><span class="act-name">Creative Arts &amp; Crafts</span></div>
     </div>
     <div class="act-card reveal" style="transition-delay:0.15s">
-      <div class="act-bg" style="background-image:url('https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00249.jpg')"></div>
+      <div class="act-bg" style="background-image:url('assets/site/dining-room.jpg')"></div>
       <div class="act-overlay"><span class="act-tag">Social</span><span class="act-name">Dining &amp; Community</span></div>
     </div>
   </div>
@@ -389,6 +507,19 @@
   <a href="contact.html" class="btn-white">Get In Touch</a>
 </section>
 
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-content reveal">
+    <p class="section-eyebrow" style="color:rgba(255,255,255,0.75);">Come See for Yourself</p>
+    <h2 class="section-title">Come see Eden House<br><em>for yourself.</em></h2>
+    <p>We'd love to welcome you, show you around and introduce you to our community.</p>
+    <div class="final-cta-btns">
+      <a href="contact.html" class="btn-white">Schedule a Tour →</a>
+      <a href="tel:519-856-4622" class="final-cta-phone">519-856-4622</a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-brand">
     <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
@@ -400,7 +531,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="long-term-care.html">Long-Term Care</a></li>
-      <li><a href="retirement-home.html">Retirement Home</a></li>
+      <li><a href="retirement-home.html">Retirement Living</a></li>
       <li><a href="infection-control.html">Infection &amp; Control</a></li>
       <li><a href="legislation.html">Legislation / Reports</a></li>
       <li><a href="gallery.html">Gallery</a></li>
