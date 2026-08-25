@@ -5,36 +5,8 @@
       "caption": "FRONT ENTRANCE "
     },
     {
-      "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00215-768x621.jpeg",
-      "caption": "MEMORY GARDEN"
-    },
-    {
-      "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSC00276.jpeg",
-      "caption": "EDEN HOUSE"
-    },
-    {
-      "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSCN3108-300x225.jpg",
-      "caption": "ACTIVITY ROOM"
-    },
-    {
       "src": "https://edenhousecarehome.ca/wp-content/uploads/2025/03/Screenshot-2025-03-31-at-2.06.15-PM-300x225.png",
       "caption": "DINING ROOM"
-    },
-    {
-      "src": "https://edenhousecarehome.ca/wp-content/uploads/2025/03/Screenshot-2025-03-31-at-2.06.26-PM-300x222.png",
-      "caption": "Lounge Area"
-    },
-    {
-      "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/DSCN3120-1-300x225.jpg",
-      "caption": "Care Room"
-    },
-    {
-      "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/20210503_140145-2-300x214.jpg",
-      "caption": "MEAL"
-    },
-    {
-      "src": "https://edenhousecarehome.ca/wp-content/uploads/2021/05/20210510_121259-1-300x169.jpg",
-      "caption": "MEAL"
     },
     {
       "src": "assets/site/resident-craft-sanding.jpg",
@@ -47,14 +19,6 @@
     {
       "src": "assets/site/dining-room.jpg",
       "caption": "Dining Room"
-    },
-    {
-      "src": "assets/site/living-room-lounge.jpg",
-      "caption": "Living Room & Lounge"
-    },
-    {
-      "src": "assets/site/game-room-library.jpg",
-      "caption": "Game Room & Library"
     },
     {
       "src": "assets/site/walkway-path.jpg",
@@ -81,32 +45,12 @@
       "caption": "Courtyard Garden Boxes"
     },
     {
-      "src": "assets/site/patio-memorial-statue-1.jpg",
-      "caption": "Memorial Garden Patio"
-    },
-    {
       "src": "assets/site/patio-memorial-statue-2.jpg",
       "caption": "Memorial Garden Statue"
     },
     {
-      "src": "assets/site/hallway-dandelion-mural.jpg",
-      "caption": "Hallway Mural"
-    },
-    {
       "src": "assets/site/reception-desk.jpg",
       "caption": "Reception Desk"
-    },
-    {
-      "src": "assets/site/lounge-residents-1.jpg",
-      "caption": "Residents in the Lounge"
-    },
-    {
-      "src": "assets/site/lounge-residents-2.jpg",
-      "caption": "Movie Time in the Lounge"
-    },
-    {
-      "src": "assets/site/lounge-residents-3.jpg",
-      "caption": "Afternoon in the Lounge"
     }
   ]
 }
