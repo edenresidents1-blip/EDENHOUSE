@@ -1,5 +1,18 @@
 {
   "label": "August 2026 Newsletter",
   "pdf": "/assets/uploads/september.docx",
-  "pages": []
+  "pages": [
+    {
+      "src": "/assets/uploads/7d857169-ecc3-4ac2-9e2d-6cc69c702e1a-0.jpg"
+    },
+    {
+      "src": "/assets/uploads/7d857169-ecc3-4ac2-9e2d-6cc69c702e1a-2.jpg"
+    },
+    {
+      "src": "/assets/uploads/7d857169-ecc3-4ac2-9e2d-6cc69c702e1a-1.jpg"
+    },
+    {
+      "src": "/assets/uploads/7d857169-ecc3-4ac2-9e2d-6cc69c702e1a-3.jpg"
+    }
+  ]
 }
