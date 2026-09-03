@@ -1,10 +1,5 @@
 {
   "label": "August 2026 Newsletter",
-  "pdf": "assets/newsletter/eden-house-newsletter-august-2026.pdf",
-  "pages": [
-    { "src": "assets/newsletter/newsletter-page-1.jpg" },
-    { "src": "assets/newsletter/newsletter-page-2.jpg" },
-    { "src": "assets/newsletter/newsletter-page-3.jpg" },
-    { "src": "assets/newsletter/newsletter-page-4.jpg" }
-  ]
+  "pdf": "/assets/uploads/september.docx",
+  "pages": []
 }
