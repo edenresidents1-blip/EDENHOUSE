@@ -43,6 +43,66 @@
     {
       "src": "assets/site/reception-desk.jpg",
       "caption": "Reception Desk"
+    },
+    {
+      "src": "assets/site/gallery-lobby-fishtank-info.jpg",
+      "caption": "Resident & Family Information Area"
+    },
+    {
+      "src": "assets/site/gallery-resident-room-floral.jpg",
+      "caption": "Resident Room"
+    },
+    {
+      "src": "assets/site/gallery-resident-room-dusk.jpg",
+      "caption": "Resident Room"
+    },
+    {
+      "src": "assets/site/gallery-shared-resident-room.jpg",
+      "caption": "Shared Resident Room"
+    },
+    {
+      "src": "assets/site/gallery-porch-columns-seating.jpg",
+      "caption": "Covered Porch Seating"
+    },
+    {
+      "src": "assets/site/gallery-resident-room-doors.jpg",
+      "caption": "Resident Room Doors"
+    },
+    {
+      "src": "assets/site/gallery-dining-room-tables.jpg",
+      "caption": "Dining Room"
+    },
+    {
+      "src": "assets/site/gallery-exterior-tree-bench.jpg",
+      "caption": "Garden Bench & Flower Beds"
+    },
+    {
+      "src": "assets/site/gallery-parking-lawn-trees.jpg",
+      "caption": "Grounds & Parking"
+    },
+    {
+      "src": "assets/site/gallery-flower-planter-cart.jpg",
+      "caption": "Flower Planter Cart"
+    },
+    {
+      "src": "assets/site/gallery-picnic-flag-lawn.jpg",
+      "caption": "Picnic Area & Flag Pole"
+    },
+    {
+      "src": "assets/site/gallery-patio-chairs-brick.jpg",
+      "caption": "Patio Seating"
+    },
+    {
+      "src": "assets/site/gallery-music-activity.jpg",
+      "caption": "Live Music Activity"
+    },
+    {
+      "src": "assets/site/gallery-sunroom-plants-view.jpg",
+      "caption": "Sunroom Plants"
+    },
+    {
+      "src": "assets/site/gallery-planter-boxes-flowers.jpg",
+      "caption": "Garden Planter Boxes"
     }
   ]
 }
