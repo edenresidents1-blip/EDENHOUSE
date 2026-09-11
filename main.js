@@ -77,7 +77,7 @@ function buildSlider(trackId, dotsId, slides) {
 // 4. Formspree will send a confirmation email the first time — click the link
 //    inside it to activate the form. After that, every submission is emailed
 //    straight to admin@edenhousecarehome.ca automatically.
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/FORMSPREE_ENDPOINT_HERE';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mbgjbbrb';
 
 function handleSubmit(e) {
   e.preventDefault();
