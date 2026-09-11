@@ -69,16 +69,20 @@ function buildSlider(trackId, dotsId, slides) {
 }
 
 // ── FORM SUBMIT ──
-// IMPORTANT SETUP STEP (one-time, takes ~2 minutes):
-// 1. Go to https://formspree.io and sign up free using admin@edenhousecarehome.ca
-// 2. Create a new form — Formspree will give you an endpoint like:
-//    https://formspree.io/f/abcdwxyz
-// 3. Paste that endpoint below, replacing "FORMSPREE_ENDPOINT_HERE".
-// 4. Formspree will send a confirmation email the first time — click the link
-//    inside it to activate the form. After that, every submission is emailed
-//    straight to admin@edenhousecarehome.ca automatically.
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/meaqddze';
-
+// This form now submits natively to Netlify Forms (built into hosting — no
+// third-party service, no signup, no verification step, free up to 100
+// submissions/month). Netlify auto-detects the form at deploy time because
+// it has the data-netlify="true" attribute and a matching hidden
+// "form-name" field directly in contact.html.
+//
+// ONE-TIME SETUP STEP for the site owner (in the Netlify dashboard):
+// 1. Go to your site in Netlify → Site configuration → Forms
+// 2. Confirm a form named "contact" appears in the list (it's auto-detected
+//    on deploy — if it's missing, trigger a new deploy first)
+// 3. Go to Forms → Form notifications → Add notification → Email
+//    notification, and enter the email address(es) that should receive
+//    submissions. That's the only step needed — no third-party account,
+//    no email verification link to chase down.
 function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
@@ -89,11 +93,12 @@ function handleSubmit(e) {
   btn.disabled = true;
 
   const data = new FormData(form);
+  const encoded = new URLSearchParams(data).toString();
 
-  fetch(FORMSPREE_ENDPOINT, {
+  fetch('/', {
     method: 'POST',
-    body: data,
-    headers: { 'Accept': 'application/json' }
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encoded
   })
     .then(response => {
       if (response.ok) {

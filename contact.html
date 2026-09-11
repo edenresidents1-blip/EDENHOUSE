@@ -131,7 +131,11 @@
     </div>
     <div class="form-card reveal" style="transition-delay:0.15s">
       <h3>Send a Message</h3>
-      <form id="contactForm" onsubmit="handleSubmit(event)">
+      <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="position:absolute;left:-9999px;" aria-hidden="true">
+          <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
