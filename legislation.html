@@ -36,6 +36,14 @@
 .fire-band { background: var(--stone); display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
 .fire-band .section-eyebrow { color: var(--sage); }
 .gwt-section { text-align: center; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-top: 48px; }
+.contact-card { background: #fff; border: 1px solid var(--sage-light); border-radius: 16px; padding: 26px 24px; transition: box-shadow 0.3s, transform 0.25s; }
+.contact-card:hover { box-shadow: 0 8px 30px rgba(38,52,74,0.1); transform: translateY(-3px); }
+.contact-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--forest); margin-bottom: 4px; font-weight: 500; }
+.contact-card .contact-role { font-size: 0.72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 10px; }
+.contact-card .contact-ext { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; }
+.contact-card a.contact-email { font-size: 0.8rem; color: var(--sage); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--sage-light); padding-bottom: 1px; word-break: break-all; }
+.contact-card a.contact-email:hover { color: var(--forest); }
 @media (max-width: 960px) { .leg-intro { grid-template-columns: 1fr; } .bpso-imgs { grid-template-columns: 1fr 1fr; } .fire-band { grid-template-columns: 1fr; } .bpso-section { padding-left: 28px; padding-right: 28px; } }
 @media (max-width: 560px) { .bpso-imgs { grid-template-columns: 1fr; } }
 </style>
@@ -293,6 +301,77 @@
   </div>
 </section>
 
+<section class="section" id="management-contacts" style="background:var(--sage-pale)">
+  <div class="reveal" style="max-width:720px;margin:0 auto 0;text-align:center">
+    <p class="section-eyebrow">Get In Touch</p>
+    <h2 class="section-title">Management &amp; <em>Department Contacts</em></h2>
+    <p class="section-lead" style="margin:0 auto;">Reach the right department directly by phone extension or email. Our main line is <a href="tel:+15198564622">(519) 856-4622</a> — dial an extension below once connected.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card reveal">
+      <h3>Lisa Holisek</h3>
+      <p class="contact-role">Administrator</p>
+      <p class="contact-ext">Ext. 222</p>
+      <a class="contact-email" href="mailto:admin@edenhousecarehome.ca">admin@edenhousecarehome.ca</a>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Sandy Pooni</h3>
+      <p class="contact-role">Director of Care</p>
+      <p class="contact-ext">Ext. 223</p>
+      <a class="contact-email" href="mailto:doc@edenhousecarehome.ca">doc@edenhousecarehome.ca</a>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Amanda Brubacher</h3>
+      <p class="contact-role">Associate Director of Care</p>
+      <p class="contact-ext">Ext. 232</p>
+      <a class="contact-email" href="mailto:adoc@edenhousecarehome.ca">adoc@edenhousecarehome.ca</a>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Kathy Onifrichuk</h3>
+      <p class="contact-role">Unit Clerk</p>
+      <p class="contact-ext">Ext. 228</p>
+      <a class="contact-email" href="mailto:clerk@edenhousecarehome.ca">clerk@edenhousecarehome.ca</a>
+    </div>
+    <div class="contact-card reveal">
+      <h3>BJ Oates</h3>
+      <p class="contact-role">Laundry &amp; Housekeeping</p>
+      <p class="contact-ext">Ext. 246</p>
+      <a class="contact-email" href="mailto:nursing@edenhousecarehome.ca">nursing@edenhousecarehome.ca</a>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Chris Westwood</h3>
+      <p class="contact-role">Maintenance Manager</p>
+      <p class="contact-ext">&nbsp;</p>
+      <a class="contact-email" href="mailto:maintenance@edenhousecarehome.ca">maintenance@edenhousecarehome.ca</a>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Prakriti Chapagain</h3>
+      <p class="contact-role">Business Services Manager</p>
+      <p class="contact-ext">Ext. 233</p>
+      <a class="contact-email" href="mailto:bookkeeper@edenhousecarehome.ca">bookkeeper@edenhousecarehome.ca</a>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Arshpreet Sandhu</h3>
+      <p class="contact-role">Food Service Manager</p>
+      <p class="contact-ext">Ext. 225</p>
+      <a class="contact-email" href="mailto:dietary@edenhousecarehome.ca">dietary@edenhousecarehome.ca</a>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Susan Toogood</h3>
+      <p class="contact-role">Associate Director of Infection, Prevention &amp; Control</p>
+      <p class="contact-ext">Ext. 247</p>
+      <a class="contact-email" href="mailto:clinical@edenhousecarehome.ca">clinical@edenhousecarehome.ca</a>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Cody Cowbrough</h3>
+      <p class="contact-role">Recreational Programs Manager</p>
+      <p class="contact-ext">Ext. 224</p>
+      <a class="contact-email" href="mailto:recreation@edenhousecarehome.ca">recreation@edenhousecarehome.ca</a>
+    </div>
+  </div>
+  <p class="section-lead" style="max-width:640px;margin:32px auto 0;text-align:center;font-size:0.82rem;">For any information regarding the Recreation team, please use the email above or leave a voicemail at ext. 224.</p>
+</section>
+
 <footer>
   <div class="footer-brand">
     <a class="nav-logo" href="index.html">Eden House <span>Care Facility · Est. 1968</span></a>
@@ -318,6 +397,7 @@
       <li><a href="#privacy">Privacy Policy</a></li>
       <li><a href="#fire">Fire Safety Plan</a></li>
       <li><a href="#aoda">AODA Plan</a></li>
+      <li><a href="#management-contacts">Management Contacts</a></li>
       <li><a href="https://rnao.ca/" target="_blank" rel="noopener">RNAO</a></li>
       <li><a href="https://guelphwellingtonoht.com/" target="_blank" rel="noopener">GW OHT</a></li>
     </ul>
