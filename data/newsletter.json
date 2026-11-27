@@ -1,24 +1,21 @@
 {
   "label": "August 2026 Newsletter",
-  "pdf": "/assets/uploads/newsletter-november-2026.docx",
+  "pdf": "/assets/uploads/newsletter-december-2026.pdf",
   "pages": [
     {
-      "src": "/assets/uploads/75286c03-86a3-4409-80c2-68a8e0b9e847-0.jpg"
+      "src": "/assets/uploads/newsletter-december-2026_page-0001.jpg"
     },
     {
-      "src": "/assets/uploads/75286c03-86a3-4409-80c2-68a8e0b9e847-1.jpg"
+      "src": "/assets/uploads/newsletter-december-2026_page-0002.jpg"
     },
     {
-      "src": "/assets/uploads/75286c03-86a3-4409-80c2-68a8e0b9e847-2.jpg"
+      "src": "/assets/uploads/newsletter-december-2026_page-0003.jpg"
     },
     {
-      "src": "/assets/uploads/75286c03-86a3-4409-80c2-68a8e0b9e847-3.jpg"
+      "src": "/assets/uploads/newsletter-december-2026_page-0004.jpg"
     },
     {
-      "src": "/assets/uploads/75286c03-86a3-4409-80c2-68a8e0b9e847-4.jpg"
-    },
-    {
-      "src": "/assets/uploads/75286c03-86a3-4409-80c2-68a8e0b9e847-5.jpg"
+      "src": "/assets/uploads/newsletter-december-2026_page-0005.jpg"
     }
   ]
 }
